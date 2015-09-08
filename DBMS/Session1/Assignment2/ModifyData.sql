@@ -1,0 +1,3 @@
+ALTER TABLE book_issue MODIFY COLUMN issue_dt TIMESTAMP not NULL DEFAULT NOW();
+
+
