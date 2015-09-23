@@ -1,0 +1,175 @@
+b{
+	
+	font-size:18px;
+}
+
+#wrapper {
+    margin:0 auto;
+	width:800px;
+	height:710px;
+	
+	border-top: 16px solid gray; 
+	border-left:10px solid gray;
+	border-right:10px solid gray;
+	border-bottom:10px solid gray;
+ }
+ 
+ #header  {
+	background-color:lightblue; 
+	margin:0 auto;
+	height:80px;
+	width:800px; 
+	text-align:center;
+ }
+ #nav {
+	background:#9BB2B8;
+	width:794px;
+	margin:0 auto;
+	padding:3px;
+	text-align:left;
+	clear: both;
+}
+
+ #nav ul {
+      margin:0px;
+      list-style:none;
+}
+
+#nav ul li {
+	display:inline;
+	border:0px solid #f00;
+	margin:0 10px;
+}
+
+#nav ul li a {
+	color:#FFF;
+	text-decoration:none;
+}
+
+#nav ul li a:hover {
+	color:#FFF;
+	text-decoration:underline;
+}
+
+#leftNav {
+	width:150px;
+	float:left;
+}
+#leftNav  p{
+	 width:120px;
+	 color:blue;
+	 font-size:15px;
+	  margin:8px 8px;
+ }
+#leftNav ul {
+	list-style:none;
+	margin:0;
+	margin-top:8px;
+	margin-left:8px;
+	padding:3px;
+	border:1px solid #666;
+}
+
+#leftNav ul li {
+	margin:5px 0;
+	padding-left:10px;
+}
+
+#leftNav ul li.menuHead {
+	font-weight:bold;
+	background:#cce6fc;
+	text-align:center;
+	height:25px;
+	padding-top:5px;
+	padding-left:0px;
+	border:1px solid #999;
+}
+#left{
+	
+float:left;
+width:350px;
+height:525px;
+border-color:black;
+border-width:10px;
+margin-top:30px;
+ margin-left:30px;
+ }
+ #left  p{
+	 width:400px;
+	 color:blue;
+	 font-size:15px;
+	  margin:8px 8px;
+  }
+ #rightNav {
+	width:200px;
+	float:right;
+}
+#rightNav  p{
+	 width:150px;
+	 color:blue;
+	 font-size:15px;
+	 margin:8px 8px;
+ }
+#rightNav ul {
+	list-style:none;
+	margin:0;
+	margin-top:8px;
+	margin-right:8px;
+	padding:3px;
+	border:1px solid #666;
+}
+
+#rightNav ul li {
+	margin:5px 0;
+	padding-left:10px;
+}
+
+#rightNav ul li.menuHead {
+	font-weight:bold;
+	background:#cce6fc;
+	text-align:center;
+	height:25px;
+	padding-top:5px;
+	padding-left:0px;
+	border:1px solid #999;
+}
+
+
+ .image{
+width:400px;
+height:300px;
+margin-left:2px;
+margin-top:10px;	 
+ }
+ #footer {
+	background:#9BB2B8;
+	width:794px;
+	height:46;
+	margin:0 auto;
+	padding:3px;
+	text-align:center;
+	clear: both;
+}
+
+ #footer ul {
+      margin:0px;
+      list-style:none;
+}
+
+#footer ul li {
+	display:inline;
+	border:0px solid #f00;
+	margin:0 10px;
+}
+
+#footer ul li a {
+	color:#FFF;
+	text-decoration:none;
+}
+
+#footer ul li a:hover {
+	color:#FFF;
+	text-decoration:underline;
+}
+ 
+ 
