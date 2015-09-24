@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>HTML5 Contact Form</title>
+<link rel="stylesheet" media="screen" href="StyleSheetValidateForm.css">
+</head>
+<body>
+	<form class="contact_form" action="" method="post" name="contact_form">
+		<ul>
+			<li>
+				<h2>Contact Us</h2>
+			</li>
+			<li><label for="name">Name:</label> <input type="text"
+				name="name" placeholder="Name" required /></li>
+			<li><label for="email">Email:</label> <input type="email"
+				name="email" placeholder="abc@example.com" required /> <span
+				class="form_hint">Proper format "name@something.com"</span></li>
+			<li><label for="Date">Date:</label> <input type="date"
+				name="website" required /> <span class="form_hint">select
+					date from calendar"</span></li>
+			<li><label for="message">Marks Level:</label> <input
+				type="range" name="website" min="1" max="100" value="12" required />
+			</li>
+			<li><label for="Set Grade">Set Grade</label> <input type="text"
+				name="SetGrade" list="grade" required /> <span class="form_hint">select
+					grade "</span>
+			<datalist id="grade">
+					<option value="A+">
+					<option value="A">
+					<option value="B+">
+					<option value="B">
+					<option value="C">
+					<option value="D">
+				</datalist></li>
+			<li>
+				<button class="submit" type="submit">Submit Form</button>
+			</li>
+		</ul>
+	</form>
+
+</body>
+</html>
