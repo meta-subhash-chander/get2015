@@ -1,5 +1,6 @@
+/* Declere the canvas */
 #myCanvas {
-	width: 300;
-	height: 150;
+	width: 300px;
+	height: 100px;
 	border: 1px solid green;
 }
