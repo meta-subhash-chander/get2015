@@ -3,7 +3,7 @@
 <head>
 <title>Canvas Tag</title>
 <!-- link with css file -->
-<link rel="stylesheet" href="CanvasTagCssFile.css" type="text/css">
+<link href=".\CssAndImage\CanvasTagCssFile.css" rel="stylesheet"/>
 </head>
 <body>
 	<!--  Canvass Used -->
@@ -11,12 +11,12 @@
 Your browser does not support the HTML5 canvas tag.</canvas>
 	<script>
 <!-- Canvass Property Used
-var c = document.getElementById("myCanvas");
-var ctx = c.getContext("2d");
+var canvasVariable = document.getElementById("myCanvas");
+var canvasContext = canvasVariable.getContext("2d");
 <!-- Fill Style used-->
-ctx.fillStyle = "red";
+canvasContext.fillStyle = "red";
 <!-- Rectangle Filling Is used-->
-ctx.fillRect(20, 20, 250, 100);
+canvasContext.fillRect(20, 20, 250, 100);
 </script>
 </body>
 </html>
