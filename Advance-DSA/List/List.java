@@ -1,177 +1,322 @@
 /****************************************************************************************
-Name            :  generalizedList 
+Name            :  List 
 Revision Log    : 2015-10-05: Subhash Chander : created.
                : 
                : 
 Use             : This class is used to perform all opertion of list
                :
  ****************************************************************************************/
-package generalizedList;
+package LIST;
 
 public class List {
-
-	Node root;
-
-	String list, str = "";
-	int position = 0;
-
+	ListNode first;
+	private int max;
+	private int sum;
+	private int size;
+	private int index;
+	private String  input;
+	private char currentChar = 0 ;
 	public List() {
-		list = null;
+		first = null;
 	}
-
-	public List(String string) {
-		list = string;
-	}
-
-	void insert(Node node) {
-
-		if (position < list.length()) {
-			if (node == null) {
-				Node temp;
-				if (list.charAt(position) == '(') {
-					temp = new Node(1, null);
-				} else {
-					while (list.charAt(position) != ','
-							&& list.charAt(position) != '('
-							&& list.charAt(position) != ')') {
-						str += list.charAt(position);
-						position++;
-					}
-					temp = new Node(0, Integer.parseInt(str));
-					str = "";
-				}
-				root = temp;
-				position++;
-				insert(temp);
-			} else if (list.charAt(position) == '(') {
-				Node temp = new Node(1, null);
-				node.setNext(temp);
-				position++;
-				insert(node.getNext());
-			} else if (list.charAt(position) == ')') {
-				position++;
-				return;
-			} else if (list.charAt(position) == ',') {
-				position++;
-				insert(node);
-			} else {
-
-				while (list.charAt(position) != ','
-						&& list.charAt(position) != '('
-						&& list.charAt(position) != ')') {
-					str += list.charAt(position);
-					position++;
-				}
-				// position--;
-				Node temp = new Node(0, Integer.parseInt(str));
-				str = "";
-				if (node.getTag() == 0) {
-					node.setNext(temp);
-					System.out.println("node is created  0 tag->"
-							+ temp.getData() + "+" + node.getData());
-					position++;
-					insert(temp);
-
-				} else if (node.getTag() == 1 && node.getData() != null) {
-					node.setNext(temp);
-					System.out
-							.println("node is created  0 tag and store in main list->"
-									+ node.getNext().getData());
-					position++;
-					insert(temp);
-				} else {
-
-					node.setData(temp);
-					System.out
-							.println("node is created 0 tag and store under sublist->"
-									+ temp.getData());
-					position++;
-					insert(temp);
-				}
-
-			}
-
+	/**
+	 * List method : constructor to set value of input 
+	 * @param: String : input string
+	 * */
+	public List(String input) {
+		max = Integer.MIN_VALUE;
+		sum = 0;
+		index = 1;
+		size = 0;
+		this.input = input;
+		if (isInputValid(input)) {
+			first = createList();
+		} else {
+			System.out.println("Input is not valid ");
 		}
 	}
-
-	int sumOfelements(Node node, int sum) {
-
-		if (node != null) {
-			if (node.getTag() == 0) {
-				sum = sum + (int) node.getData();
-				sum = sumOfelements(node.getNext(), sum);
-			} else {
-				sum = sumOfelements((Node) node.getData(), sum);
-				sum = sumOfelements(node.getNext(), sum);
-
+	/**
+	 * isInputValid method : method is use to check that input is valid or not
+	 * @param: String : input string
+	 * @return: boolean result
+	 * */
+	public static boolean isInputValid(String input) {
+		char presentChar = 0;
+		int countOpen = 0;
+		int countClose = 0;
+		int countNumber =0 ;
+		int countComma = 0;
+		int otherChar = 0;
+		int count = 0;
+		while( count < input.length()) {
+			presentChar = input.charAt(count);
+			switch(presentChar) {
+			case '(':
+				count++;
+				if(count < input.length()) {
+					presentChar = input.charAt(count);
+				}
+				countOpen++;
+				break;
+			case '0':
+			case '1':
+			case '2':
+			case '3':
+			case '4':
+			case '5':
+			case '6':
+			case '7':
+			case '8':
+			case '9':
+				count++;
+				if(count < input.length()) {
+					presentChar = input.charAt(count);
+				}
+				while( presentChar >= '0' && presentChar <= '9' ) {					
+					count++;	
+					if(count < input.length()) {
+						presentChar = input.charAt(count);
+					} else {
+						break;
+					}
+				}
+				countNumber++;
+				break;
+			case ')':
+				count++;
+				if(count < input.length()) {
+					presentChar = input.charAt(count);
+				}
+				countClose++;
+				break;
+			case ',':
+				count++;
+				if(count < input.length()) {
+					presentChar = input.charAt(count);
+				}
+				countComma++;
+				break;
+			default :
+				count++;
+				if(count < input.length()) {
+					presentChar = input.charAt(count);
+				}
+				otherChar++;
+				break;
 			}
-
+		}
+		if(countClose != countOpen || countOpen <= 0) {
+			return false;
+		} else if((countNumber-1) != countComma) {
+			return false;
+		} else if(otherChar != 0) {
+			return false;
+		}
+		return true; 
+		
+	}
+	/**
+	 * isEmpty method :check that list is empty
+	 * @return: boolean result
+	 * */
+	public boolean isEmpty() {
+		if(size == 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	/**
+	 * createList method :Generate the list
+	 * @return: ListNode
+	 * */
+	private ListNode createList( ) {
+		ListNode list = null;
+		ListNode prev = null;		
+		int flag = 1;
+			if(index < input.length()) {
+				currentChar = input.charAt(index);
+			}
+			
+			do{
+				switch (currentChar) {
+				case '(':
+					index++;
+					System.out.println(list);
+					ListNode newNode = new ListNode();
+					newNode.setFlag(1);
+					newNode.setData(createList());
+					newNode.setNext(null);
+					
+					
+					if(list == null) {
+						list = newNode;
+						prev = newNode;
+					} else {
+						prev.setNext(newNode);
+						prev = newNode;
+					}
+					break;
+				case '0':
+				case '1':
+				case '2':
+				case '3':
+				case '4':
+				case '5':
+				case '6':
+				case '7':
+				case '8':
+				case '9':
+					String number = Character.toString(currentChar);
+					index++;
+					
+						currentChar = input.charAt(index);
+					
+					while( currentChar >= '0' && currentChar <= '9' ) {
+					
+						number += currentChar;
+						index++;
+				
+							currentChar = input.charAt(index);
+					
+					}
+					int data = Integer.parseInt(number);
+					size++;
+					ListNode newNode1 = new ListNode();
+					newNode1.setFlag(0);
+					newNode1.setData(data);
+					newNode1.setNext(null);
+					if(list == null) {
+						list = newNode1;
+						prev = newNode1;
+					} else {
+						prev.setNext(newNode1);
+						prev = newNode1;
+					}
+					
+					break;
+				
+				case ',':
+					index++;
+					
+					currentChar = input.charAt(index);
+					break;
+				case ')' :
+					flag = 0;
+					index++;
+					if(index < input.length()) {
+						currentChar = input.charAt(index);
+					}
+					System.out.println(list);
+					return list;
+				default:
+						flag = 0;
+						break;
+				}
+				
+			} while( flag != 0 || index < input.length());
+		return list;
+		
+	}
+	/**
+	 * traverse method : method is use to traverse the list
+	 * */
+	public void traverse(){
+		if(isEmpty()) {
+			System.out.println("The list is empty");
+			return;
+		}
+		traverseAllList(first);
+	}
+	/**
+	 * traverseAllList method : method is use to traverse the list
+	 * @param : first node to start traverse
+	 * */
+	public void traverseAllList(ListNode first) {
+		while(first != null ) {
+			if(first.getFlag() == 0){
+				System.out.print(first.getData() + ", ");
+				sum += (Integer)first.getData();
+				if(max<(Integer)first.getData()) {
+					max =(Integer)first.getData();
+				}
+				first = first.getNext();
+			} else {
+				ListNode first1 = (ListNode)first.getData();
+				traverseAllList(first1);
+				first = first.getNext();
+			}
+		}
+		
+	}
+	/**
+	 * findElement method : method is use find element into  list
+	 * @param : first node to start traverse
+	 * @param : element to search
+	 * @return : boolean result
+	 * */
+	private boolean findElement(ListNode first,int searchingElement) {
+		boolean isFound = false;
+		while(first != null ) {
+			if(first.getFlag() == 0){
+			
+				if(searchingElement == (Integer)first.getData()) {
+					isFound = true;
+				}
+				first = first.getNext();
+			} else {
+				ListNode first1 = (ListNode)first.getData();
+				isFound = (findElement(first1, searchingElement) || isFound);
+				first = first.getNext();
+			}
+		}
+		return isFound;
+	}
+	/**
+	 * max method : max element into  list
+	 * @return : max element
+	 * */
+	public int max() {
+		if(size ==0 ) {
+			System.out.println("There is no element in List");
+		}
+		return max;		
+	}
+	/**
+	 * sum method : sum of all element into  list
+	 * @return :  element sum
+	 * */
+	public int sum() {
+		if(size ==0 ) {
+			System.out.println("There is no element in List");
 		}
 		return sum;
 	}
-
-	void display(Node node) {
-		if (node != null) {
-			if (node.getTag() == 0) {
-				System.out.println(node.getData());
-				display(node.getNext());
-
-			} else {
-				display((Node) node.getData());
-				display(node.getNext());
-
-			}
-
-		}
-
+	/**
+	 * find method : method is use find element into  list
+	 * @param : element to search
+	 * @return : boolean result
+	 * */
+	public boolean find(int searchingElement) {
+		if(size ==0 ) {
+			System.out.println("There is no element in List");
+			return false;
+		} 
+		
+		return findElement(first, searchingElement);
 	}
-
-	int max(Node node, int max) {
-		if (node != null) {
-			if (node.getTag() == 0) {
-				if (max < (int) node.getData())
-					max = (int) node.getData();
-				max = max(node.getNext(), max);
-
-			} else {
-				max = max((Node) node.getData(), max);
-				max = max(node.getNext(), max);
-
-			}
-
-		}
-		return max;
+	
+	/**
+	 * size method : method is use size of list
+	 * @return :size of list
+	 * */
+	@SuppressWarnings("unused")
+	private int size() {
+		return size;
 	}
-
-	boolean search(Node node, int element, boolean search) {
-		if (node != null) {
-			if (node.getTag() == 0) {
-				if ((int) node.getData() == element) {
-					return true;
-
-				}
-				search = search(node.getNext(), element, search);
-
-			} else {
-
-				search = search((Node) node.getData(), element, search);
-				search = search(node.getNext(), element, search);
-			}
-
-		}
-		return search;
-	}
-
-	public static void main(String[] args) {
-		List list = new List("((251,3),5,((13,2),1,(1,1),(10,(0),7)))");
-		System.out.println(list.list);
-		list.insert(list.root);
-		list.display(list.root);
-		System.out.println(list.search(list.root, 1, false));
-		System.out.println("sum of elements is ->"
-				+ list.sumOfelements(list.root, 0));
-
-		System.out.println("Max of elements is ->"
-				+ list.max(list.root, -1275867));
+	public static void printMenu(){
+		System.out.println(" Enter 1for give the input \n 2 for the Check the validity of input \n 3 "
+				+ "for the list Creation \n 4 for the list display \n 5 for the Maximum Number in List \n 6 for the Sum Of elements "
+				+ "\n 7 to find the element in List \n 8 for Exit");
 	}
 }
