@@ -6,71 +6,59 @@ Revision Log    : 2015-10-05: Subhash Chander : created.
 Use             : This class is used to perform all opertion of list
                :
  ****************************************************************************************/
-package generalizedList;
+package LIST;
+
 
 public class Node {
-    private Object data;
-    private Node next;
-    private int tag;
-    
-    /**
-	 * Node method : default constructor 
-	 * */
-    Node()
-    {
-	tag=0;
-	data=null;
+	int flag;
+	Object data;
+	ListNode next;
+	 /**
+   	 * getFlag method : get value of flag
+   	 * */
+	public int getFlag() {
+		return flag;
 	}
-    /**
-   	 * Node method :  constructor  to set value of tag and data
-   	 * @param :tag of node
-   	 * @param : value of node
+	 /**
+   	 * setFlag method : set value of flag
+   	 * @param :flag value
    	 * */
-    Node(int tag,Object data)
-    {this.data=data;
-    next=null;
-    this.tag=tag;
-	
-    }
-    /**
-   	 * getNext method : get value of next
-   	 * */
-    public Node getNext() {
-		return next;
-	}
-    /**
-   	 * setNext method : set value of next
-   	 * @param :node value
-   	 * */
-
-	public void setNext(Node next) {
-		this.next = next;
+	public void setFlag(int flag) {
+		this.flag = flag;
 	}
 	/**
    	 * getData method : get value of data
    	 * */
 	public Object getData() {
-        return data;
-    }
-	/**
-   	 * getTag method : get value of tag
-   	 * */
-    public int getTag() {
-        return tag;
-    }
-    /**
-   	 * setTag method : set value of tag
-   	 * @param :tag value
-   	 * */
-    public void setTag(int tag) {
-        this.tag = tag;
-    }
-    /**
+		return data;
+	}
+	 /**
    	 * setData method : set value of data
    	 * @param :data value
    	 * */
-    public void setData(Object data) {
-        this.data = data;
-    }
-   
+	public void setData(Object data) {
+		this.data = data;
+	}
+	  /**
+   	 * getNext method : get value of next
+   	 * */
+	public ListNode getNext() {
+		return next;
+	}
+	  /**
+   	 * setNext method : set value of next
+   	 * @param :node value
+   	 * */
+	public void setNext(ListNode next) {
+		this.next = next;
+	}
+	/**
+   	 * toString method : get value of all attribute
+   	 * */
+	@Override
+	public String toString() {
+		return "ListNode [flag=" + flag + ", data=" + data + ", next=" + next
+				+ "]";
+	}
+	
 }
