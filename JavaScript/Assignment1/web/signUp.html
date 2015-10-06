@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<!-- Title of web page -->
+<title>my javascript Registration</title>
+<!-- link with css file -->
+<link rel="stylesheet" media="screen" href="../css/StyleSheetValidateForm.css">
+<!-- link with java script file -->
+<script type="text/javascript" src="../js/signUpJavaScript.js"></script>
+</head>
+<body>
+<!-- Declare the  form tag -->
+	<form class="contact_form" action="" method="post" name="contact_form">
+	<!--Start the table tag -->
+		<table align ="center">
+		<tr><td colspan="2" align="center" ><h1>SIGNUP FORM</h1></td> </tr>
+			<tr>
+				<td>First Name *</td> 
+				<td><input type="text" id="first"  maxlength="15" placeholder="Enter first name"></td>
+			</tr>
+			<tr>
+				<td>Last Name *</td> 
+				<td><input type="text" id="last"  maxlength="15" placeholder="Enter last name"></td>
+			</tr>
+			<tr>
+				<td>Password *</td>
+				<td><input type="password" id="password"  maxlength="15" placeholder="Enter password min 8"></td>
+			</tr>
+			<tr>
+				<td>Re-Enter Password *</td>
+				<td><input type="password" id="confirm"   maxlength="15"  placeholder="Re enter password"></td>
+			</tr>
+			<tr>
+				<td>Enter Age *</td>
+				<td><input type="number" id="age"  min="10" max="99" step="any" placeholder="Enter age min 18"></td>
+			</tr>
+			<tr>
+				<td>State *</td> 
+				<td>
+					<select id="state" onchange="createCity()">
+						<option>Select State</option>
+						<option value="Rajsthan">Rajasthan</option>
+						<option value="MP">Madhay Pradesh</option>
+						<option value="Maharastra">Maharastra</option>
+						<option value="UP">Uttar Pradesh</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>City *</td> 
+				<td>
+					<select id="city">
+						<option>Select City</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Address *</td> 
+				<td><textarea id="address" rows="3" cols="20" maxlength="50" placeholder="Enter full address"></textarea></td>
+			</tr>
+			<tr>
+				
+				<td>
+					<input type="checkbox" id="check" onChange="activateSubmit()" ></td>
+					<td colspan="2" align="left"><label for="check">I Accept All <a href="#">Terms & Condition</a></label>
+				</td>
+			</tr>
+			
+			
+			<tr>
+				<td colspan="2" align="center">
+					
+					<button class="submit" type="button" value="Create" id="submit" onclick="validate()" disabled>Submit Form</button>
+				</td>
+			</tr>
+			</table>
+	</form>
+
+</body>
+</html>
