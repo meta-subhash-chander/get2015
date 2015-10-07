@@ -7,7 +7,7 @@ Use             : This class is used to perform all opertion of list
 
 import java.util.Scanner;
 
-public class ListMainClass {
+public class ListMainClass {  
 	public static void main(String[] args) {
 		GenralizeList list = null;
 		Scanner scanner = new Scanner(System.in);
