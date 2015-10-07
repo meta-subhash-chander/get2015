@@ -1,64 +1,27 @@
 /****************************************************************************************
-Name            :  Node   
+Name            :  Node 
 Revision Log    : 2015-10-05: Subhash Chander : created.
-               : 
-               : 
+                : 
+                : 
 Use             : This class is used to perform all opertion of list
-               :
+                :
  ****************************************************************************************/
-package LIST;
-
-
 public class Node {
-	int flag;
-	Object data;
-	ListNode next;
+
+	Node next;
+	Object value;
 	 /**
-   	 * getFlag method : get value of flag
+   	 * Node constractor : set value of node
+   	 * @param : value
    	 * */
-	public int getFlag() {
-		return flag;
-	}
-	 /**
-   	 * setFlag method : set value of flag
-   	 * @param :flag value
-   	 * */
-	public void setFlag(int flag) {
-		this.flag = flag;
-	}
-	/**
-   	 * getData method : get value of data
-   	 * */
-	public Object getData() {
-		return data;
+	public Node(Object item) {
+		value = item;
+		next = null;
 	}
 	 /**
-   	 * setData method : set value of data
-   	 * @param :data value
+   	 * default constractor 
    	 * */
-	public void setData(Object data) {
-		this.data = data;
+	public Node() {
 	}
-	  /**
-   	 * getNext method : get value of next
-   	 * */
-	public ListNode getNext() {
-		return next;
-	}
-	  /**
-   	 * setNext method : set value of next
-   	 * @param :node value
-   	 * */
-	public void setNext(ListNode next) {
-		this.next = next;
-	}
-	/**
-   	 * toString method : get value of all attribute
-   	 * */
-	@Override
-	public String toString() {
-		return "ListNode [flag=" + flag + ", data=" + data + ", next=" + next
-				+ "]";
-	}
-	
+
 }
