@@ -76,11 +76,13 @@ public class Stack {
 			return false;
 
 	}
-	 /**
-   	 * peek method : peek element into stack
-   	 * @return :object item
-   	 * */
-        public Object peek() {
+	 
+	/**
+	 * peek method : peek element into stack
+	 * 
+	 * @return :object item
+	 * */
+	public Object peek() {
 		Object type = null;
 		if (top >= size) {
 			System.out.println("stack overflow");
