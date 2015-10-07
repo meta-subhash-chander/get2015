@@ -18,9 +18,10 @@ public class Node {
 		value = item;
 		next = null;
 	}
-	 /**
-   	 * default constractor 
-   	 * */
+	 
+	/**
+	 * default constractor
+	 * */
 	public Node() {
 	}
 
