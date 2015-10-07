@@ -16,6 +16,7 @@ public class GenralizeList {
 	private int sum = 0;
 	private String outputList = "";
 	private boolean b = false;
+
 	/**
 	 * getStart method : method to get Start node
 	 * */
@@ -23,14 +24,17 @@ public class GenralizeList {
 		return start;
 
 	}
+
 	/**
 	 * GenralizeList method : constructor to set Start node
 	 * */
 	public GenralizeList() {
 		start = null;
 	}
+
 	/**
 	 * GenralizeList method :Generate the GenralizeList
+	 * 
 	 * @param : String of input
 	 * */
 	public GenralizeList(String input) {
@@ -80,10 +84,12 @@ public class GenralizeList {
 			}
 		}
 	}
+
 	/**
-   	 * toString method : method is use to traverse the list
-   	 * @param : start node of GenralizeList
-   	 * */
+	 * toString method : method is use to traverse the list
+	 * 
+	 * @param : start node of GenralizeList
+	 * */
 	public String toString(Node start) {
 		if (start == null) {
 			return outputList;
@@ -100,8 +106,10 @@ public class GenralizeList {
 		return outputList;
 
 	}
+
 	/**
-	 * calculateMaximumElement method : find max element into  list
+	 * calculateMaximumElement method : find max element into list
+	 * 
 	 * @param : start node of GenralizeList
 	 * @return : maximum element of GenralizeList
 	 * */
@@ -124,10 +132,12 @@ public class GenralizeList {
 
 		return max;
 	}
+
 	/**
-	 * calculateSum method : sum of all element into  list
+	 * calculateSum method : sum of all element into list
+	 * 
 	 * @param : start node of GenralizeList
-	 * @return :  elements sum
+	 * @return : elements sum
 	 * */
 	public int calculateSum(Node start) {
 		if (start == null) {
@@ -145,8 +155,10 @@ public class GenralizeList {
 
 		return sum;
 	}
+
 	/**
-	 * search method : method is use find element into  list
+	 * search method : method is use find element into list
+	 * 
 	 * @param : int x:element to search
 	 * @param : node start :start node of GenralizeList
 	 * @return : boolean result
@@ -171,5 +183,5 @@ public class GenralizeList {
 
 		return b;
 	}
-	
+
 }
