@@ -110,7 +110,7 @@ public class GenralizeList {
 	/**
 	 * calculateMaximumElement method : find max element into list
 	 * 
-	 * @param : start node of GenralizeList
+	 * @param : start node of Genralize List
 	 * @return : maximum element of GenralizeList
 	 * */
 	public int calculateMaximumElement(Node start) {
