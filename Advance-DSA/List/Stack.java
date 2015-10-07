@@ -6,7 +6,7 @@ Revision Log    :  2015-10-05: Subhash Chander : created.
 Use             : This class is used to perform all opertion of stack
                 :
  ****************************************************************************************/
-public class Stack {
+public class Stack {  
 	private int top;
 	private int size;
 	private Object stack[];
