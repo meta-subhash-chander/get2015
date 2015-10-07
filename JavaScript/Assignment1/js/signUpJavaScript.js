@@ -9,52 +9,39 @@
 		}
 /*  validate function : use to validate form */
 		function validate() {
-			var count = 0;
 			if(document.getElementById("first").value.trim() == "") {
-				count++;
 				alert("First Name Is Empty");	
+				return;
 			} 
-			
-			else if(document.getElementById("last").value.trim() == "") {
-				count++
+			if(document.getElementById("last").value.trim() == "") {
 				alert("Last Name Is Empty");
-				
+				return;
 			}
-			
-			else if(document.getElementById("password").value.length < 8 ){
-				count++;
+			 if(document.getElementById("password").value.length < 8 ){
 				alert("Password Length should be greater than 8");
-				
+				return;
 			}
-			
-			
-			else if(document.getElementById("password").value != document.getElementById("confirm").value) {
-				count++;
+			 if(document.getElementById("password").value != document.getElementById("confirm").value) {
 				alert("Password & Re-Enter Password  mismatch!!");
-				
+				return;
+			}
+			if(document.getElementById("age").value< 18 ||document.getElementById("age").value >100 ){
+				alert("age  should between 18 and 100");
+				return;
+			}
+			 if(document.getElementById("state").selectedIndex == 0) {
+				alert("Please select state") ;
+				return;
+			}
+			if(document.getElementById("address").value.trim() == "") {
+				alert("address Is Empty");
+				return;
+			}else{
+				alert("User created successful");
+				return;
+			}
 			}
 			
-			else if(document.getElementById("age").value< 10 ||document.getElementById("age").value >100 ){
-				count++;
-				alert("age  should between 18 and 100");
-				
-			}
-			else if(document.getElementById("state").selectedIndex == 0) {
-				count++;
-				alert("Please select state") ;
-				
-			}
-			else if(document.getElementById("address").value.trim() == "") {
-				count++
-				alert("address Is Empty");
-				
-			}
-			else if(count==0) {
-				
-				
-				alert("Form successfully submitted");
-			}
-			}
 /*  createCity function : use to dynamic changes into web page into select tag */		
 		function createCity() {
 			var cityObject = document.getElementById("city");
