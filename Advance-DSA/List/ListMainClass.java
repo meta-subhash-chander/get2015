@@ -4,20 +4,18 @@ Revision Log    : 2015-10-05: Subhash Chander : created.
 Use             : This class is used to perform all opertion of list
                 :
  ****************************************************************************************/
-package generalizedList;
+
 
 import java.util.Scanner;
 
-import LIST.List;
-
 public class ListMainClass {
 	public static void main(String[] args) {
-		List list = null;
+		GenralizeList list = null;
 		Scanner scanner = new Scanner(System.in);
 		String input = null;
 		int choice = -1;
 		do {
-			List.printMenu(); 
+		    printMenu(); 
 			while(!scanner.hasNextInt()) {
 				System.out.println("Please Enter only Integer!");
 				scanner.next();
@@ -29,47 +27,42 @@ public class ListMainClass {
 			}
 			switch (choice) {
 			case 1:
-				System.out.println("Enter the Input ");
+				do{
+				System.out.println("Enter the valid Input ");
 				input = scanner.next();
+				}while(!InputValidate.isInputValid(input));
 				break;
-			case 2:
+			case 2 :
 				if(input == null ) {
 					System.out.println(" Please firstly Enter The input ");
 					break;
 				}
-				System.out.println(List.isInputValid(input));
+				list = new GenralizeList(input);
 				break;
 			case 3 :
 				if(input == null ) {
 					System.out.println(" Please firstly Enter The input ");
 					break;
 				}
-				list = new List(input);
+				System.out.println(list.toString(list.getStart()));
 				break;
-			case 4:
+			case 4 :
 				if(input == null ) {
 					System.out.println(" Please firstly Enter The input ");
 					break;
 				}
-				list.traverse();
-				break;
-			case 5:
-				if(input == null ) {
-					System.out.println(" Please firstly Enter The input ");
-					break;
-				}
-				System.out.println("Max = " + list.max());
+				System.out.println("Max = " + list.calculateMaximumElement(list.getStart()));
 				break;
 				
-			case 6:
+			case 5 :
 				if(input == null ) {
 					System.out.println(" Please firstly Enter The input ");
 					break;
 				}
-				System.out.println("Sum = " + list.sum());
+				System.out.println("Sum = " + list.calculateSum(list.getStart()));
 				break;
 				
-			case 7:
+			case 6 :
 				if(input == null ) {
 					System.out.println(" Please firstly Enter The input ");
 					break;
@@ -80,15 +73,19 @@ public class ListMainClass {
 					scanner.next();
 				}
 				int searchingElement = scanner.nextInt();
-				System.out.println("Find = " + list.find(searchingElement));
+				System.out.println("Find = " + list.search(list.getStart(), searchingElement));
 				break;
-			case 8:
+			case 7 :
 				scanner.close();
 				System.exit(0);
 			}
 		} while(choice != 8 );
-		
-		// list = new List("(3,4,(1,2),5,6,7,(8))");				
+						
+	}
+	public static void printMenu(){
+		System.out.println(" Enter input according to instruction \n 1 for give the input \n 2 "
+				+ "for the list Creation \n 3 for the list display \n 4 for the Maximum Number in List \n 5 for the Sum Of elements "
+				+ "\n 6 to find the element in List \n 7 for Exit");
 	}
 	
 	
