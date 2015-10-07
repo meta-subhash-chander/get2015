@@ -84,8 +84,8 @@ public class InputValidate {
 		} else if(otherChar != 0) {
 			return false;
 		}
-		return true; 
-		
+		return true;
+
 	}
 
 }
