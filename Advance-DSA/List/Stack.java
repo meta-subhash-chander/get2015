@@ -80,17 +80,17 @@ public class Stack {
    	 * peek method : peek element into stack
    	 * @return :object item
    	 * */
-	public Object peek() {
-		Object t = null;
+        public Object peek() {
+		Object type = null;
 		if (top >= size) {
 			System.out.println("stack overflow");
 		} else if (top == -1) {
 
 			System.out.println("Stack underflow");
 		} else {
-			t = stack[top];
+			type = stack[top];
 		}
-		return t;
+		return type;
 	}
 
 }
