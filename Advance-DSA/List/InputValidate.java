@@ -6,7 +6,7 @@ Revision Log    :  2015-10-05: Subhash Chander : created.
 Use             : method is use to check that input is valid or not
                 :
  ****************************************************************************************/
-public class InputValidate {
+public class InputValidate {  
 	/**
 	 * isInputValid method : method is use to check that input is valid or not
 	 * @param: String : input string
