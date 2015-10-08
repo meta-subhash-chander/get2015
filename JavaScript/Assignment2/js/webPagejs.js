@@ -1,3 +1,4 @@
+
 /*  createTable function : use to create table */
 function createTable() {
 	var flag = validationForCreateTable();
@@ -72,17 +73,16 @@ function fill() {
 }
 /*  validationForCreateTable function : validation for create table data */
 function validationForCreateTable() {
-	var flag = true;
 	var length = document.getElementById("inputvalue").value;
 	if (length == "") {
-		flag = false;
-		alert("row value should not be blank");
+		document.getElementById("hiddenLabel").style.visibility = "visible";
+        document.getElementById("hiddenLabel").style.display = "inline";
+		return false;
 	}
-	return flag;
+	return true;
 }
 /*  validationForCreateGraph function : validation for createGraph */
 function validationForCreateGraph() {
-	var flag = true;
 	var row;
 	var length = document.getElementById("inputvalue").value;
 	for (row = 0; row < length; row++) {
@@ -91,28 +91,22 @@ function validationForCreateGraph() {
 		var name = document.getElementById(row + "0").value;
 		if (name == "") {
 			alert("Name should not be blank");
-			flag = false;
-			break;
+			return false;
 		} else if (parseInt(min) > parseInt(max)) {
 			alert("Min should not be grater than max value");
-			flag = false;
-			break;
+			return false;
 		} else if (min < 0) {
 			alert("Min value should not be less than 0");
-			flag = false;
-			break;
+			return false;
 		} else if (max > 10) {
 			alert("Max value should not be less than 10");
-			flag = false;
-			break;
+			return false;
 		} else if (max == "" || min == "") {
 			alert("Max or Min value should not be blank");
-			flag = false;
-			break;
-
+			return false;
 		}
 
 	}
-	return flag;
+	return true;
 
 }
