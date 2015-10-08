@@ -1,344 +1,253 @@
-/****************************************************************************************
-Name            :  EightPuzzle 
-Revision Log    : 2015-10-05: Subhash Chander : created.
-               : 
-               : 
-Use             : This class is used to solve puzzle
-               :
- ****************************************************************************************/
 package puzzle;
+import java.io.*;
+import java.util.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Scanner;
+/**
+ * This class contains logic and properties that are related to
+ * a sliding puzzle.
+ *
+ * @author subhash chander
+ */
+public class Puzzle {
 
+  /** The initial state of the puzzle. */
+  public State initialState;
 
-public class EightPuzzle implements Comparable<EightPuzzle> {
+  /** The current state of the puzzle. */
+  public State state;
 
-    private final static int N = 3;
-    private final static String[] names = { "   ", "  1", "  2", "  3", "  4",
-            "  5", "  6", "  7", "  8" };
-    private static int totalEnqueued;
-    private final static int[][] solved = { { 1, 2, 3 }, { 4, 5, 6 },
-            { 7, 8, 0 } };
-    private int moves;
-    private int[][] tiles;
-    private EightPuzzle parent;
-    private int priority;
-    private int distance;
-    int zeroLocX = 0;
-    int zeroLocY = 0;
-    /**
-	 * EightPuzzle method : allocate separate memory for new tiles array
-	 * @param: array  : 2d  array
-	 * */
-    EightPuzzle(int[][] tiles) {
-        this.tiles = new int[N][N];
-        for (int i = 0; i < N; i++)
-            for (int j = 0; j < N; j++)
-                this.tiles[i][j] = tiles[i][j];
+  /** The initial capacity of the queue. */
+  static final int CAPACITY = 100;
 
-    }
-    /**
-   	 * EightPuzzle method : allocate separate memory for new tiles array
-   	 * @param: array  : 2d  array
-   	 * */
-    EightPuzzle(int[][] tiles, EightPuzzle parent, int moves) {
-        this.tiles = new int[N][N];
-        for (int i = 0; i < N; i++)
-            for (int j = 0; j < N; j++)
-                this.tiles[i][j] = tiles[i][j];
-        this.parent = parent;
-        this.moves = moves;
-        priority();
-    }
-    /**
-   	 * priority method : get priority 
-   	 * @param: periority  : 2d  array
-   	 * */
-    public int priority() {
-        int manhatDist = 0;
-        for (int x = 0; x < N; x++)
-            for (int y = 0; y < N; y++) {
-                switch (tiles[x][y]) {
+  /** The filename for the file to output to, if given. */
+  private String outFile;
 
-                case 1:
-                    manhatDist += posDiff(x, y, 0, 0);
-                    break;
-                case 2:
-                    manhatDist += posDiff(x, y, 0, 1);
-                    break;
-                case 3:
-                    manhatDist += posDiff(x, y, 0, 2);
-                    break;
-                case 4:
-                    manhatDist += posDiff(x, y, 1, 0);
-                    break;
-                case 5:
-                    manhatDist += posDiff(x, y, 1, 1);
-                    break;
-                case 6:
-                    manhatDist += posDiff(x, y, 1, 2);
-                    break;
-                case 7:
-                    manhatDist += posDiff(x, y, 2, 0);
-                    break;
-                case 8:
-                    manhatDist += posDiff(x, y, 2, 1);
-                    break;
-                case 0:
-                    manhatDist += posDiff(x, y, 2, 2);
-                    break;
-                default:
-                    break;
-                }
-
-            }
-        this.priority = manhatDist + moves;
-        return priority;
-    }
-
-    private int posDiff(int xPos, int yPos, int xGoal, int yGoal) {
-        int diff = Math.abs(xPos - xGoal);
-        diff += Math.abs(yPos - yGoal);
-
-        return diff;
-    }
- 
+  /** The A * Search priority queue used to solve the puzzle. */
+  public final PriorityQueue<State> queue = new PriorityQueue<State>(CAPACITY, new Comparator<State>() {
     @Override
-    public int compareTo(EightPuzzle b) {
-        if (b.distance() == distance()) {
-            for (int i = 0; i < N; i++) {
-                if (!(Arrays.equals(b.getBoard()[i], this.getBoard()[i]))) { 
-                	if (b.priority() > priority()) 
-                        return -1;
-                    return 1;
-                }
-            }
-            return 0;
-        } else if (b.priority() > priority()) 
-            return -1;
-        else
-            return 1;
+    public int compare(State o1, State o2) {
+      return o1.f() - o2.f();
+    }
+  });
+
+  /** A Hash set containing the states that have been visited. */
+  public final HashSet<State> visited = new HashSet<State>();
+
+  /**
+   * Constructor for puzzle class.
+   * @param puzzleInput Valid sliding puzzle in 2D array format.
+   */
+  public Puzzle(int[] puzzleInput) {
+    this.initialState = new State(puzzleInput);
+    this.state = this.initialState;
+  }
+
+  /**
+   * Constructor for puzzle class.
+   * @param puzzleInput Valid sliding puzzle in 2D array format.
+   * @param outFile A filename to output solution to.
+   */
+  public Puzzle(int[] puzzleInput, String outFile) {
+    this.initialState = new State(puzzleInput);
+    this.state = this.initialState;
+    this.outFile = outFile;
+  }
+
+  /**
+   * This method checks whether or not the puzzle object it
+   * is called on is a solvable puzzle or not.
+   * @return True if it is solvable, false if it is not.
+   */
+  public boolean isSolvable() {
+    int inversions = 0;
+    int[] p = this.state.array;
+
+    for(int i = 0; i < p.length - 1; i++) {
+      for(int j = i + 1; j < p.length; j++)
+        if(p[i] > p[j]) inversions++;
+      if(p[i] == 0 && i % 2 == 1) inversions++;
+    }
+    return (inversions % 2 == 0);
+  }
+
+  /**
+   * This method determines whether or not the data inputted by
+   * the user is a valid puzzle format.
+   * @param puzzleInput A string of the user's input.
+   * @return True if it is valid, false if not.
+   */
+  public static boolean isValid(String puzzleInput) {
+    if (puzzleInput.length() == 17) {
+      // Check if duplicates exist in the input.
+      HashSet<Integer> lump = new HashSet<Integer>();
+      for(String s : puzzleInput.split(" ")) {
+        int i = Integer.parseInt(s);
+        if (lump.contains(i) || i > 8) return false;
+        lump.add(i);
+      }
+      return true;
+    }
+    return false;
+  }
+
+  /**
+   * This method retrieves a user's input from the console
+   * and returns the input as an integer array.
+   * @return An array of integers.
+   */
+  public static int[] getConsoleInput() {
+    System.out.println("\nEnter a valid 8-puzzle below:");
+    @SuppressWarnings("resource")
+	Scanner scanner = new Scanner(System.in);
+
+    String t = handleBlankSpaces(scanner.nextLine());
+    String m = handleBlankSpaces(scanner.nextLine());
+    String b = handleBlankSpaces(scanner.nextLine());
+
+    return convertToArray(String.format("%s %s %s", t, m, b));
+  }
+
+  /**
+   * This method retrieves a user's input from a file and
+   * returns the input as an integer array.
+   * @param filename - The filename to retrieve from.
+   */
+  public static int[] readFromFile(String filename) {
+    BufferedReader br = null;
+    String input = "";
+
+    try {
+      String currentLine;
+      br = new BufferedReader(new FileReader(filename));
+      while ((currentLine = br.readLine()) != null)
+        input += handleBlankSpaces(currentLine) + " ";
+      br.close();
+    } catch (FileNotFoundException e) {
+      System.out.println("File does not exist!");
+      System.exit(0);
+    } catch (IOException e) {}
+
+    return convertToArray(input.trim());
+  }
+
+  /**
+   * This method replaces blanks in the user's input
+   * with 0s for easier solving of the puzzle.
+   * @param row The row input by the user.
+   * @return String the row with blanks replaced with 0s.
+   */
+  public static String handleBlankSpaces(String row) {
+    row = row.replaceAll("\\s+$", "");
+
+    if (row.length() == 3) row += " 0";
+    row = row.replace("   ", " 0 ").replace("  ", "0 ");
+    return row.trim();
+  }
+
+  /**
+   * This method outputs a passed in string into a filename.
+   */
+  public void writeToFile(String content) throws IOException {
+    File f = new File(this.outFile);
+    if (!f.exists()) f.createNewFile();
+
+    FileWriter fw = new FileWriter(f.getAbsoluteFile());
+    BufferedWriter bw = new BufferedWriter(fw);
+    bw.write(content);
+    bw.close();
+  }
+
+  /**
+   * This method converts a string of user's input into
+   * an integer array to be used by the puzzle class.
+   * @param s A string of 9 integers separated by spaces.
+   * @return The converted integer array.
+   */
+  public static int[] convertToArray(String s) {
+    if (!isValid(s)) {
+      System.out.println("Invalid 8-puzzle entered!");
+      System.exit(0);
     }
 
-    /**
-     * @return
-     */
-    public int[][] getBoard() {
-        return tiles;
+    int[] p = new int[9];
+    s = s.replace(" ", "");
+    for(int i = 0; i < s.length(); i++)
+      p[i] = Integer.parseInt(Character.toString(s.charAt(i)));
+    return p;
+  }
+
+  /**
+   * This method calculates the current heuristic for a puzzle's
+   * state. The heuristic it uses is the sum of the Manhattan Distance
+   * of each tile from where it is located to where is should be.
+   * @param array A puzzle state array.
+   * @return int - The heuristic for the current puzzle.
+   */
+  public static int getHeuristic(int[] array) {
+    int heuristic = 0;
+
+    for(int i = 0; i < array.length; i++) {
+      if (array[i] != 0)
+        heuristic += getManhattanDistance(i, array[i]);
     }
+    return heuristic;
+  }
 
-    /**
-   	 * isSolved method : does board position equal goal position?
-   	 * @return: boolean output
-   	 * */
-    public boolean isSolved() {
-        for (int i = 0; i < N; i++) {
-            if (!(Arrays.equals(tiles[i], solved[i]))) {
-                return false;
-            }
+  /**
+   * This method calculates the Manhattan Distance between a tile's
+   * location and it's goal location.
+   * @param index The tile's current index.
+   * @param number The value of the tile.
+   * @return int - The distance between the tile and it's goal state.
+   */
+  public static int getManhattanDistance(int index, int number) {
+    return Math.abs((index / 3) - ((number-1) / 3)) + Math.abs((index % 3) - ((number-1) % 3));
+  }
 
+  /**
+   * This method handles adding the next state to the queue. It
+   * will only add the next state to the queue if it is a valid move
+   * and the state has not been visited previously.
+   * @param nextState
+   */
+  private void addToQueue(State nextState) {
+    if(nextState != null && !this.visited.contains(nextState)) this.queue.add(nextState);
+  }
+
+  /**
+   * This method handles the solving of the puzzle.
+   */
+  public void solve() {
+    // Clear the queue and add the initial state.
+    queue.clear();
+    queue.add(this.initialState);
+    long startTime = System.currentTimeMillis();
+
+    while(!queue.isEmpty()) {
+      // Get the best next state.
+      this.state = queue.poll();
+
+      // Check if the state is a solution.
+      if (this.state.isSolved()) {
+        if(this.outFile != null) {
+          try { // Write to the file.
+            this.writeToFile(this.state.solutionMessage(startTime));
+          } catch (IOException e) {}
+        } else { // Print to the console.
+          System.out.println(this.state.solutionMessage(startTime));
         }
-        return true;
+        return;
+      }
+
+      // Add this state to the visited HashSet so we don't revisit it.
+      visited.add(state);
+
+      // Add valid moves to the queue.
+      this.addToQueue(Move.up(state));
+      this.addToQueue(Move.down(state));
+      this.addToQueue(Move.left(state));
+      this.addToQueue(Move.right(state));
     }
-
-    /**
-   	 * findGoalState method : for NxN expansion 
-   	 * */
-    public int[][] findGoalState() {
-        int[][] solved = new int[N][N];
-        int nums = 1;
-
-        for (int i = 0; i < N; i++)
-            for (int j = 0; j < N; j++) {
-                solved[i][j] = nums;
-                nums++;
-                if (nums == (N * N)) {
-                    solved[N - 1][N - 1] = 0;
-                    break;
-                }
-            }
-        return solved;
-    }
-    /**
-   	 * distance method : return sum of Manhattan distances of tiles to their proper position
-   	 * 
-   	 * */
-    private int distance() {
-        this.distance = priority() - moves;
-        return this.distance;
-    }
-
-    private int getZeroXLoc() {
-        for (int x = 0; x < N; x++)
-            for (int y = 0; y < N; y++)
-                if (tiles[x][y] == 0) {
-                    zeroLocX = x; 
-                    zeroLocY = y;
-                }
-        return zeroLocX;
-    }
-
-    private int getZeroYLoc() {
-        getZeroXLoc();
-        return zeroLocY;
-    }
-
-    private void assignZeroLoc() {
-        getZeroYLoc();
-    }
-
-    /**
-   	 * neighbors method :return the neighboring board positions
-   	 * */
-    public EightPuzzle[] neighbors() {
-        ArrayList<EightPuzzle> tempneighbors = new ArrayList<EightPuzzle>();
-
-        assignZeroLoc(); 
-
-        for (int i = -1; i < 2; i++) { 
-            int p = zeroLocX + i; 
-            if (p < 0 || p > N - 1)
-                continue; 
-            for (int j = -1; j < 2; j++) {
-                int q = zeroLocY + j;
-                if (q < 0 || q > N - 1 || (p == zeroLocX && q == zeroLocY) ||   ((Math.abs(zeroLocX - p) + Math.abs(zeroLocY - q))) > 1) //or if delta x + delta y is greater than 1, aka at a diagonal space
-                    continue; 
-
-                int[][] temptiles = new int[N][N];
-
-                for (int m = 0; m < N; m++)
-                    temptiles[m] = Arrays.copyOf(tiles[m], N);
-
-                int tempQ = temptiles[p][q]; 
-                temptiles[p][q] = 0; 
-                temptiles[zeroLocX][zeroLocY] = tempQ; 
-                EightPuzzle neighbor = new EightPuzzle(temptiles, this,
-                        this.moves + 1); 
-                tempneighbors.add(neighbor); 
-                totalEnqueued++;
-
-            }
-
-        }
-
-        EightPuzzle[] neighbors = new EightPuzzle[tempneighbors.size()];
-
-        return tempneighbors.toArray(neighbors);
-    }
-
-    public void showPath() {
-        if (parent != null)
-            parent.showPath();
-        System.out.println("Move #" + moves + " Priority = " + priority);
-        System.out.println(toString());
-    }
-
-    /**
-   	 * toString method :print details of puzzle
-   	 * */
-    @Override
-    public String toString() {
-        String s = "";
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++)
-                s += names[tiles[i][j]] + " ";
-            s += "\n";
-        }
-        return s;
-    }
-
-    public boolean isSolvable() {
-        int[] row = new int[(N * N) - 1];
-        int rowIndex = 0;
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
-                if (tiles[i][j] != 0) {
-                    row[rowIndex] = tiles[i][j];
-                    rowIndex++;
-                }
-            }
-        }
-
-        int inversions = 0;
-        for (int x = 0; x < row.length; x++) {
-            for (int y = x; y < row.length; y++)
-                if (row[x] > row[y])
-                    inversions++;
-        }
-        return inversions % 2 == 0;
-    }
-
-    @SuppressWarnings("unused")
-	public static void main(String[] args) {
-
-        int[][] easy0 = { { 1, 2, 3 }, { 7, 0, 5 }, { 8, 4, 6 } }; 
-        int[][] hard0 = { { 0, 8, 7 }, { 2, 5, 1 }, { 3, 6, 4 } };  
-        int[][] hard1 = { { 4, 5, 0 }, { 6, 8, 7 }, { 1, 2, 3 } };  
-        int[][] medium0 = { { 2, 3, 1 }, { 7, 0, 8 }, { 6, 5, 4 } };  
-        int[][] medium1 = { { 1, 2, 3 }, { 8, 0, 4 }, { 7, 6, 5 } };  
-        int[][] medium2 = { { 1, 2, 3 }, { 7, 0, 4 }, { 8, 6, 5 } };  
-         int[][] twentytwo = { {4, 8, 2},
-                 {3, 6, 5},
-                 {1, 7, 0} };
-
-        System.out.println("Please enter the 3x3 grid in the format \n\"XXX \n XXX  \n XXX\" where X is a number between 0 and 8");
-        Scanner scan = new Scanner(System.in);
-		int userEntered = 0;
-        int[][] userIn = new int[N][N];
-        userIn = easy0;
-     
-        EightPuzzle x = new EightPuzzle(userIn);
-        System.out.println(x);
-
-        ArrayList<EightPuzzle> pq = new ArrayList<EightPuzzle>();
-        pq.add(x);
-      
-
-        int nodes = 0;
-        ArrayList<EightPuzzle> seen = new ArrayList<EightPuzzle>(); 
-        while (!pq.isEmpty()) {
-        	ArrayList<EightPuzzle> ar = pq;
-        	Collections.sort(ar);
-        	 x= ar.get(0);
-            pq.remove(ar.get(0));  
-           
-            if (nodes == 0) {
-                if (!x.isSolvable()) {
-                    System.out.println("This is an unsolvable puzzle, please enter a solvable one");
-                    System.exit(0);
-                }
-            }
-            nodes++;
- 
-            for (int i = 0; i < seen.size(); i++) {  
-                if (x.compareTo(seen.get(i)) == 0) {
-                	ar = pq;
-                	Collections.sort(ar);
-                	 x= ar.get(0);
-                    pq.remove(ar.get(0)); 
-                   
-                }
-            }
-
-            seen.add(x);  
-
-            if (x.isSolved()) { 
-                break;
-            }
-
-            EightPuzzle[] neighbors = x.neighbors();  
-            for (int i = 0; i < neighbors.length; i++)
-                if (!(x.compareTo(neighbors[i]) == 0)
-                        && neighbors[i].isSolvable())
-                    pq.add(neighbors[i]);
-
-        }
-        System.out.println("Total nodes enqueued = " + totalEnqueued);
-        System.out.println("Nodes expanded = " + nodes);
-        x.showPath();
-    }
+  }
 
 }
