@@ -58,3 +58,9 @@
 	font-size: 24px;
 	font-weight: bold;
 }
+
+#hiddenLabel {
+  display:none;
+  visibility:hidden;
+  color:red;
+}
