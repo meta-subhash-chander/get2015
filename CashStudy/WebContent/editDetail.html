@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Maruti-M1-Sm-1</title>
+<!-- link with css file -->
+<link href="../css/style.css" rel="stylesheet" />
+<!-- link with java script file -->
+<script type="text/javascript" src="../js/javascript.js"></script>
+
+</head>
+<body onload="visiblityOfCreate();">
+	<!--Start the div wrapper -->
+	<div id="wrapper">
+		<header>
+			<!--Start the div head -->
+			<div id="head">
+				<nav>
+					<ul>
+						<li><a href="create.html">Create</a></li>
+						<li><a href="index.html">Home</a></li>
+						<li id="logout"><a href="login.html">Log Out</a></li>
+					</ul>
+				</nav>
+			</div>
+			<img src="../image/car.png" id="image" />
+		</header>
+		<!--Start the div detail -->
+		<div id="detail">
+			<br>
+			<form action="index.html">
+				<table align="center" class="aligncenter">
+					<tr>
+						<td><h3>Company :</h3></td>
+						<td><input type="text" id="company" name="company"
+							value="Maruti" id="email"></td>
+					</tr>
+					<tr>
+						<td><h3>Model :</h3></td>
+						<td><input type="text" id="model" name="model" value="M1"></td>
+					</tr>
+					<tr>
+						<td><h3>EngineInCC :</h3></td>
+						<td><input type="number" id="engine" name="engine"
+							value="1200"></td>
+					</tr>
+					<tr>
+						<td><h3>FuelCapacity :</h3></td>
+						<td><input type="number" id="fuel" name="fuel" value="25"></td>
+					</tr>
+					<tr>
+						<td><h3>Milage :</h3></td>
+						<td><input type="number" id="milage" name="milage" value="20"></td>
+					</tr>
+					<tr>
+						<td><h3>Ex-showroomPrice :</h3></td>
+						<td><input type="number" id="showroomprice"
+							name="showroomprice" value="500000"></td>
+					</tr>
+					<tr>
+						<td><h3>RoadTax :</h3></td>
+						<td><input type="number" id="roadtax" name="roadtax"
+							onclick=" setroadTax()" value="1000"></td>
+					</tr>
+					<tr>
+						<td><h3>OnRoadPrice :</h3></td>
+						<td><input type="number" id="roadprice" name="roadprice"
+							value="501000" onclick="roadPrice() "></td>
+					</tr>
+
+				</table>
+				<button class="btnStyle " type="submit" value="Submit">Submit
+				</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

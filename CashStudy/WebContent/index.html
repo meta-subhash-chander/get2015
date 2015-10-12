@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<!-- link with css file -->
+<link href="../css/style.css" rel="stylesheet" />
+<title>CarDekho.com</title>
+<!-- link with java script file -->
+<script type="text/javascript" src="../js/javascript.js"></script>
+</head>
+<body onload="imageSlider(); visiblityOfCreate();">
+	<!--Start the div wrapper -->
+	<div id="wrapper">
+		<!--Start the div header -->
+		<header>
+			<div id="head">
+				<nav>
+					<ul>
+						<li id="create"><a href="create.html">Create Car</a></li>
+						<li id="logout"><a href="login.html">Log Out</a></li>
+					</ul>
+				</nav>
+
+			</div>
+			<img src="../image/car.png" id="image" />
+		</header>
+		<!--Start the div section -->
+		<section>
+			<h1 align="center">Search</h1>
+			<hr>
+			<form action="searchdetail.html">
+				<h3 align="center">Company name</h3>
+				<h3 align="center">
+					<select required class="searchBox">
+						<option selected disabled value="">-Select-</option>
+						<option value="maruti">Maruti</option>
+						<option value="honda">Honda</option>
+						<option value="hyundai">Hyundai</option>
+						<option value="tata">Tata</option>
+						<option value="ford">Ford</option>
+
+					</select>
+				</h3>
+				<h3 align="center">Model</h3>
+				<h3 align="center">
+					<select required class="searchBox">
+						<option selected disabled value="">-Select-</option>
+						<option>Swift</option>
+						<option>M2</option>
+						<option>M3</option>
+						<option>M4</option>
+						<option>M5</option>
+
+					</select>
+				</h3>
+				<br>
+				<h3 align="center">
+					<button class="btnStyle " type="submit" value="Submit">Search
+					</button>
+				</h3>
+			</form>
+		</section>
+		<!--Start the div aside -->
+		<aside>
+			<img width="700px" height="400px" id="imageslider"
+				src="../image/car1.png" />
+		</aside>
+	</div>
+</body>
+</html>

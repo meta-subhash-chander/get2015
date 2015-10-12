@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<!-- link with css file -->
+<link href="../css/style.css" rel="stylesheet" />
+<!-- link with java script file -->
+<script type="text/javascript" src="../js/javascript.js"></script>
+</head>
+<body onload="visiblityOfCreate();">
+	<!--Start the div wrapper -->
+	<div id="wrapper">
+
+		<header>
+			<!--Start the div head -->
+			<div id="head">
+				<nav>
+					<ul>
+
+						<li><a href="index.html">Home</a></li>
+						<li id="logout"><a href="login.html">Log Out</a></li>
+					</ul>
+
+				</nav>
+
+			</div>
+			<img src="../image/car.png" id="image" />
+		</header>
+		<!--Start the div detail -->
+		<div id="detail">
+			<br>
+			<form action="index.html">
+				<table class="aligncenter" align="center">
+					<tr>
+						<td><h3>Company :</h3></td>
+						<td><input type="text" id="company" name="company" required></td>
+					</tr>
+					<tr>
+						<td><h3>Model :</h3></td>
+						<td><input type="text" id="model" name="model" required></td>
+					</tr>
+					<tr>
+						<td><h3>EngineInCC :</h3></td>
+						<td><input type="number" id="engine" name="engine" required></td>
+					</tr>
+					<tr>
+						<td><h3>FuelCapacity :</h3></td>
+						<td><input type="number" id="fuel" name="fuel" required></td>
+					</tr>
+					<tr>
+						<td><h3>Milage :</h3></td>
+						<td><input type="number" id="milage" name="milage" required></td>
+					</tr>
+					<tr>
+						<td><h3>Ex-showroomPrice :</h3></td>
+						<td><input type="number" id="showroomprice"
+							name="showroomprice" required></td>
+					</tr>
+					<tr>
+						<td><h3>RoadTax :</h3></td>
+						<td><input type="number" id="roadtax" name="roadtax"
+							onclick="setroadTax()" required readonly></td>
+					</tr>
+					<tr>
+						<td><h3>OnRoadPrice :</h3></td>
+						<td><input type="number" id="roadprice" name="roadprice"
+							required onclick="roadPrice() " readonly></td>
+					</tr>
+
+				</table>
+
+				<button class="btnStyle " type="submit"
+					onclick=" setroadTax(); roadPrice(); " value="Submit">Submit</button>
+			</form>
+
+
+
+		</div>
+
+
+
+	</div>
+
+</body>
+</html>
