@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<!-- link with css file -->
+<link href="../css/style.css" rel="stylesheet" />
+<!-- link with java script file -->
+<script type="text/javascript" src="../js/javascript.js"></script>
+<title>Admin log in</title>
+</head>
+<body >
+<!--Start the div wrapper -->
+	<div id="wrapper">
+	<!--Start the div header -->
+		<header>
+			<div id="head">
+				<nav>
+					<ul>
+						<li></li>
+
+
+					</ul>
+
+				</nav>
+
+			</div>
+			<img src="../image/car.png" id="image" />
+		</header>
+ 	<!--Start the div loginBoxForAdmin -->
+		<div id="loginBoxForAdmin">
+		<form action="index.html">
+		<h2 align="center"><u>Admin Log In</u></h2>
+		<div><h3 align="center">User Name : </h3><p  align="center"><input type="text" name="username" id="username"/></p></div>
+		<div><h3 align="center">Password :</h3><p align="center"> <input type="password" name="pwd" id="pwd"/></p></div>
+		<p align="center"> <input type="submit" name="submit" id="submit" value="Log-in" class="btnStyle" onclick="return isValidAdmin()"/></p>
+		</form>
+		</div>
+			<!--Start the div loginBoxForUser -->
+		<div id="loginBoxForUser"><h1 align="center">Go For Website Tour <a href="index.html" onclick="setUser()"><img src="../image/arrow.png" width="80px" height="30px" /></a></h1></div>
+		
+
+	</div>
+
+</body>
+</html>
