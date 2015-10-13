@@ -1,3 +1,11 @@
+/****************************************************************************************
+Name            : ShowResult
+Revision Log    : 2015-10-12: Subhash Chander : created.
+                : 
+                : 
+Use             : This class is used to send data to web page
+                :
+ ****************************************************************************************/
 package com.servlets;
 
 import java.io.IOException;
@@ -12,20 +20,14 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/ShowResult")
 public class ShowResult extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-   
-    public ShowResult() {
-        super();
-    }
-
-	protected void doGet(HttpServletRequest request,
+	/**
+	 * doPost method : used to send respond of  web page
+	 * 
+	 */
+	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 		out.println("In Second Servlet = " + request.getAttribute("result"));
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		doGet(request, response);
 	}
 
 }
