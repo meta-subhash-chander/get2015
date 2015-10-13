@@ -1,3 +1,11 @@
+/****************************************************************************************
+Name            : DoValidation
+Revision Log    : 2015-10-12: Subhash Chander : created.
+                : 
+                : 
+Use             : This class is used to validate inputs into form
+                :
+ ****************************************************************************************/
 package com.servlets;
 
 import java.io.*;
@@ -12,7 +20,11 @@ public class DoValidation extends HttpServlet {
 	 * Servlet implementation class DoValidation
 	 */
 	private static final long serialVersionUID = 1L;
-
+	/**
+	 * validation method : used to validate data name , password ,email
+	 * 
+	 * @param int : validation result
+	 */
 	private int validation(String name, String password, String email) {
 		int i = 0;
 		String nameRagix = "^[a-z0-9_-]{3,15}$";
@@ -33,7 +45,10 @@ public class DoValidation extends HttpServlet {
 		}
 		return i;
 	}
-
+	/**
+	 * doPost method : used to take date from web page and return the respond 
+	 * 
+	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse respond)
 			throws ServletException, IOException {
 
