@@ -1,13 +1,13 @@
 @CHARSET "ISO-8859-1";
-
+/* Define  body attribute */
 body {
-	background-color: #c0c0c0;
+	background-color: lightblue;
 }
-
+/* Define  table attribute */
 table {cellspacing ="10"
 	
 }
-
+/* Define  form class*/
 .form {
 	border-top-right-radius: 10px;
 	border-top-left-radius: 10px;
@@ -27,11 +27,11 @@ table {cellspacing ="10"
 	font-size: 20px;
 	padding: 3px;
 }
-
+/* Define  button attribute */
 .btn {
 	background-color: #5C2E00;
 	color: #ffffff;
-	margin-left: 100%;
+	margin-left: 70px;
 	width: 100px;
 	height: 30px;
 	border-top-right-radius: 10px;
