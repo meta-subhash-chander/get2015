@@ -42,30 +42,33 @@
 					</tr>
 					<tr>
 						<td><h3>EngineInCC :</h3></td>
-						<td><input type="number" id="engine" name="engine" required></td>
+						<td><input type="number" id="engine" name="engine"
+							onchange="EngineDetailVerify()" required></td>
 					</tr>
 					<tr>
 						<td><h3>FuelCapacity :</h3></td>
-						<td><input type="number" id="fuel" name="fuel" required></td>
+						<td><input type="number" id="fuel" name="fuel"
+							onchange="EngineDetailVerify()" required></td>
 					</tr>
 					<tr>
 						<td><h3>Milage :</h3></td>
-						<td><input type="number" id="milage" name="milage" required></td>
+						<td><input type="number" id="milage" name="milage"
+							onchange="EngineDetailVerify()" required></td>
 					</tr>
 					<tr>
 						<td><h3>Ex-showroomPrice :</h3></td>
 						<td><input type="number" id="showroomprice"
-							name="showroomprice" required></td>
+							name="showroomprice" onchange="setroadTax()" required></td>
 					</tr>
 					<tr>
 						<td><h3>RoadTax :</h3></td>
-						<td><input type="number" id="roadtax" name="roadtax"
-							onclick="setroadTax()" required readonly></td>
+						<td><input type="number" id="roadtax" name="roadtax" required
+							readonly></td>
 					</tr>
 					<tr>
 						<td><h3>OnRoadPrice :</h3></td>
 						<td><input type="number" id="roadprice" name="roadprice"
-							required onclick="roadPrice() " readonly></td>
+							required " readonly></td>
 					</tr>
 
 				</table>
@@ -73,14 +76,7 @@
 				<button class="btnStyle " type="submit"
 					onclick=" setroadTax(); roadPrice(); " value="Submit">Submit</button>
 			</form>
-
-
-
 		</div>
-
-
-
-	</div>
-
+  </div>
 </body>
 </html>
