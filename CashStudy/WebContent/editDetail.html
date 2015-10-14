@@ -12,6 +12,7 @@
 <body onload="visiblityOfCreate();">
 	<!--Start the div wrapper -->
 	<div id="wrapper">
+
 		<header>
 			<!--Start the div head -->
 			<div id="head">
@@ -42,32 +43,33 @@
 					<tr>
 						<td><h3>EngineInCC :</h3></td>
 						<td><input type="number" id="engine" name="engine"
-							value="1200"></td>
+							value="1200" onchange="EngineDetailVerify()"></td>
 					</tr>
 					<tr>
 						<td><h3>FuelCapacity :</h3></td>
-						<td><input type="number" id="fuel" name="fuel" value="25"></td>
+						<td><input type="number" id="fuel" name="fuel" value="25"
+							onchange="EngineDetailVerify()"></td>
 					</tr>
 					<tr>
 						<td><h3>Milage :</h3></td>
-						<td><input type="number" id="milage" name="milage" value="20"></td>
+						<td><input type="number" id="milage" name="milage" value="20"
+							onchange="EngineDetailVerify()"></td>
 					</tr>
 					<tr>
 						<td><h3>Ex-showroomPrice :</h3></td>
 						<td><input type="number" id="showroomprice"
-							name="showroomprice" value="500000"></td>
+							name="showroomprice" value="500000" onchange="setroadTax()"></td>
 					</tr>
 					<tr>
 						<td><h3>RoadTax :</h3></td>
 						<td><input type="number" id="roadtax" name="roadtax"
-							onclick=" setroadTax()" value="1000"></td>
+							value="1000" readonly></td>
 					</tr>
 					<tr>
 						<td><h3>OnRoadPrice :</h3></td>
 						<td><input type="number" id="roadprice" name="roadprice"
-							value="501000" onclick="roadPrice() "></td>
+							value="501000" readonly></td>
 					</tr>
-
 				</table>
 				<button class="btnStyle " type="submit" value="Submit">Submit
 				</button>
