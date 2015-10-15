@@ -5,33 +5,32 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Register User</title>
+<!-- connect with css file -->
 <link href="../css/formCss.css" rel="stylesheet" />
 </head>
 <body>
+	<!-- start form tag -->
 	<form method="post" action="../DoAddUser">
+	<!--start division "form" tag -->
 		<div class="form">
 			<div class="form_heading">Registration</div>
+			<!-- start table tag -->
 			<table cellspacing="10">
 				<tr>
 					<td>Name</td>
 					<td>:</td>
 					<td><input type="text" name="name"></td>
-
 				</tr>
-
 				<tr>
 					<td>Email</td>
 					<td>:</td>
-					<td><input type="email" name="email"></td>
+					<td><input type="text" name="email"></td>
 				</tr>
-
-
 				<tr>
 					<td>Date Of Birth</td>
 					<td>:</td>
 					<td><input type="text" name="dob"></td>
 				</tr>
-
 				<tr>
 					<td>Password</td>
 					<td>:</td>
@@ -42,12 +41,10 @@
 					<td>:</td>
 					<td><input type="password" name="confirmPassword"></td>
 				</tr>
-
 				<tr>
 					<td><input type="submit" name="submit" value="Submit"
 						class="btn"></td>
 				</tr>
-
 			</table>
 		</div>
 	</form>
