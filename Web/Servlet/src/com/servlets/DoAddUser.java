@@ -1,3 +1,11 @@
+/****************************************************************************************
+Name            : DoAddUser
+Revision Log    : 2015-10-13: Subhash Chander : created.
+                : 
+                : 
+Use             : This class is used control register user 
+                :
+ ****************************************************************************************/
 package com.servlets;
 
 import java.io.IOException;
@@ -12,7 +20,10 @@ import com.model.User;
 
 public class DoAddUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	/**
+	 * doPost method :method is use to provide  control to take data from web page  and show response on page
+	 * 
+	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
