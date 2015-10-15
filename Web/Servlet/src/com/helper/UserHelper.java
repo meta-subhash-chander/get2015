@@ -1,3 +1,11 @@
+/****************************************************************************************
+Name            : UserHelper
+Revision Log    : 2015-10-13: Subhash Chander : created.
+                : 
+                : 
+Use             : This class is used transfer data between web page and database
+                :
+ ****************************************************************************************/
 package com.helper;
 
 import java.sql.Connection;
@@ -9,7 +17,12 @@ import com.connection.ConnectionUtil;
 import com.model.User;
 
 public class UserHelper {
-
+	/**
+	 * addUser method : used to user data into database 
+	 * 
+	 * @param object : object of class user
+	 * @return :return that user added or not
+	 */
 	public static boolean addUser(User user) {
 		Connection con = null;
 		PreparedStatement ps = null;
@@ -29,20 +42,18 @@ public class UserHelper {
 				try {
 					con.close();
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 			if (ps != null) {
 				try {
 					ps.close();
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -52,7 +63,10 @@ public class UserHelper {
 			return false;
 
 	}
-
+	/**
+	 * isValidUser method : used to check that user is valid or not
+	 * @return boolean:return that user  valid or not response
+	 */
 	public static boolean isValidUser(User user) {
 		boolean result = false;
 		Connection con = null;
@@ -75,20 +89,17 @@ public class UserHelper {
 				try {
 					con.close();
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			if (ps != null) {
 				try {
 					ps.close();
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
