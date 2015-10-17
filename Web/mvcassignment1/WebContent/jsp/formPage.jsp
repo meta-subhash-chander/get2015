@@ -20,7 +20,9 @@
 		String submitValue = "Register";
 		String formAction = "/mvcassignment1/DoRegister";
 		int id = -1;
+		String read = "";
 		Object employee = request.getAttribute("employee");
+		read = (String) request.getAttribute("read");
 		if (employee instanceof Employee) {
 			Employee employee2 = (Employee) employee;
 			employId = "" + employee2.getEmployeeId();
@@ -30,6 +32,7 @@
 			submitValue = "Edit";
 			formAction = "/mvcassignment1/DoEdit";
 			id = (Integer) request.getAttribute("id");
+
 		}
 	%>
 
@@ -48,31 +51,34 @@
 				<table class="table">
 					<tr>
 						<td>Employee Id</td>
-						<td><input type="text" name="employId" value="<%=employId%>"></td>
+						<td><input type="text" name="employId" value="<%=employId%>"
+							<%=read%> required></td>
 					</tr>
 					<tr>
 						<td>Name</td>
-						<td><input type="text" name="name" value="<%=name%>"></td>
+						<td><input type="text" name="name" value="<%=name%>" required></td>
 					</tr>
 					<tr>
 						<td>Email</td>
-						<td><input type="email" name="email" value="<%=email%>"></td>
+						<td><input type="email" name="email" value="<%=email%>"
+							required></td>
 					</tr>
 					<tr>
 						<td>Age</td>
-						<td><input type="text" name="age" value="<%=age%>"></td>
+						<td><input type="number" name="age" value="<%=age%>" required></td>
 					</tr>
 					<tr>
-						<td></td>
+						<td style="color: red">${message}</td>
 						<td><input type="submit" name="submit"
 							value="<%=submitValue%>"></td>
 					</tr>
+
 				</table>
 				<input type="hidden" name="id" value="<%=id%>">
 			</form>
 
 		</div>
-		<footer>&copy 2011 Metacube Software Pvt. Ltd. All rights
+		<footer>&copy 2015 Metacube Software Pvt. Ltd. All rights
 		reserved. </footer>
 	</div>
 </body>
