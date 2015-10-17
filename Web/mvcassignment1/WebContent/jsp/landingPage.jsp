@@ -74,7 +74,7 @@
 				for several applications to extend their reach to a cross section of
 				mobile platforms.</p>
 		</div>
-		<footer>&copy 2011 Metacube Software Pvt. Ltd. All rights
+		<footer>&copy 2015 Metacube Software Pvt. Ltd. All rights
 		reserved. </footer>
 	</div>
 </body>
