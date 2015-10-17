@@ -28,7 +28,6 @@ public class EmployeeHelper {
 		listOfEmployee.put(3, new Employee(3, "subhash", "subhash@b", 15, "1/1/15"));
 		listOfEmployee.put(4, new Employee(4, "subhash", "subhash@b", 17, "1/1/15"));
 		listOfEmployee.put(5, new Employee(5, "subhash", "subhash@b", 19, "1/1/15"));
-		listOfEmployee.put(5, new Employee(5, "subhash", "subhash@b", 20, "11/11/15"));
         
 	}
 
@@ -65,6 +64,18 @@ public class EmployeeHelper {
 		
 		listOfEmployee.put(id , employee);
 		
+	}
+	/**
+	 * isID method :method is use to check that employeId  in listOfEmployee  or not
+	 * @param: boolean result
+	 */
+	public static boolean isID(int id){
+		if(listOfEmployee.containsKey(id)){
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 
 }
