@@ -42,13 +42,15 @@
 						out.print(" <td>" + listOfEmployee.get(i).getEmployeeId()
 								+ "</td><td>" + listOfEmployee.get(i).getName()
 								+ "</td><td>" + listOfEmployee.get(i).getEmail()
-								+"</td><td>" + listOfEmployee.get(i).getDateOfRegistration()
+								+ "</td><td>"
+								+ listOfEmployee.get(i).getDateOfRegistration()
 								+ "</td>"
-						
-						+"</td><td><a href='/mvcassignment1/DoGetDetails?id="+i+"' >View Details<a</td>"
-						+"</td><td><a href='/mvcassignment1/DoPrepareForm?id="+i+"' >Edit<a</td></tr>");
-						
-				
+
+								+ "</td><td><a href='/mvcassignment1/DoGetDetails?id="
+								+ i + "' >View Details<a</td>"
+								+ "</td><td><a href='/mvcassignment1/DoPrepareForm?id="
+								+ i + "' >Edit<a</td></tr>");
+
 					}
 				%>
 			</table>
