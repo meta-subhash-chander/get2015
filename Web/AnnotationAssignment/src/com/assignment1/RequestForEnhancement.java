@@ -8,7 +8,7 @@ Use             : Annotation RequestForEnhancement request with elements id, syn
  ****************************************************************************************/
 package com.assignment1;
 
-public @interface RequestForEnhancement {
+public @interface RequestForEnhancement {  
 
 	int id();
 
