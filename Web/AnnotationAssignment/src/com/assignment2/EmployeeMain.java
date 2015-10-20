@@ -30,7 +30,7 @@ public class Main {
 		try {
 			mapper.writeValue(new File("C:\\Users\\Subhash\\workspace1\\AnnotationAssignment1\\src\\com\\assignment2\\employee.json"),employee1);	
 		    employee2 = mapper.readValue(
-					new File("C:\\Users\\Subhash\\workspace1\\AnnotationAssignment1\\src\\com\\assignment2\\employeeJsonFromEmployeeModel.json"),Employee.class);
+					new File("C:\\Users\\Subhash\\workspace1\\AnnotationAssignment1\\src\\com\\assignment2\\employeeJsonToEmployeeModel.json"),Employee.class);
 	System.out.println(employee2.toString());
 
 		} catch (IOException e) {
