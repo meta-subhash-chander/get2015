@@ -6,10 +6,8 @@ Revision Log    : 2015-10-16: Subhash Chander : created.
 Use             :Jackson API to parse a Model class to JSON and vice versa
  ****************************************************************************************/
 package com.assignment2;
-
-import java.io.File;
+import java.io.File; 
 import java.io.IOException;
-
 import org.codehaus.jackson.map.ObjectMapper;
 
 public class Main {
