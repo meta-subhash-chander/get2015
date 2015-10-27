@@ -1,3 +1,11 @@
+/****************************************************************************************
+Name            : AuthenticationFilter
+Revision Log    : 2015-09-14: Subhash Chander : created.
+                : 
+                : 
+Use             : This class is used to varify the admin
+                :
+****************************************************************************************/
 package com.filter;
 
 import java.io.IOException;
