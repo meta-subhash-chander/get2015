@@ -1,5 +1,13 @@
+/****************************************************************************************
+Name            : VehicleJDBCHelper
+Revision Log    : 2015-10-25: Subhash Chander : created.
+                : 
+                : 
+Use             : provide Interface between the webpage and database
+                :
+ ****************************************************************************************/
 package com.helper;
-   
+
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -18,7 +26,12 @@ import com.model.Car;
 import com.model.Vehicle;
 
 public class VehicleJDBCHelper {
-
+	/**
+	 * create method : insert the vehicle date into database by vehicle object
+	 * 
+	 * @param : vehicle object
+	 * @return : boolean result
+	 */
 	@SuppressWarnings("resource")
 	public static boolean create(Vehicle vehicle) {
 
@@ -76,13 +89,7 @@ public class VehicleJDBCHelper {
 					if (((Car) vehicle).isAccessoryKit()) {
 						accessoryKit = "YES";
 					}
-					query = "INSERT INTO Car(ac,powersteering,accessorykit,vehicle_id) VALUES(?,?,?,?)"; // query
-																											// for
-																											// inserting
-																											// data
-																											// in
-																											// car
-																											// table
+					query = "INSERT INTO Car(ac,powersteering,accessorykit,vehicle_id) VALUES(?,?,?,?)";
 					prepareStmt = con.prepareStatement(query);
 					prepareStmt.setString(1, ac);
 					prepareStmt.setString(2, powerSteering);
@@ -123,6 +130,13 @@ public class VehicleJDBCHelper {
 		return isInsert;
 	}
 
+	/**
+	 * searchByMakeAndModel method : search the vehicle object by the vehicle
+	 * company and model
+	 * 
+	 * @param : vehicle company and model
+	 * @return : object of vehicle
+	 */
 	@SuppressWarnings("resource")
 	public static List<Vehicle> searchByMakeAndModel(String make, String model) {
 		String query = "SELECT * FROM vehicle WHERE make = '" + make
@@ -225,36 +239,13 @@ public class VehicleJDBCHelper {
 		return vehicles;
 	}
 
-	public static int deleteByMake(String make) {
-		String query = "DELETE FROM Vehicle where make = '" + make + "'";
-		ConnectionUtill conUtil = new ConnectionUtill();
-		Connection con = conUtil.getConnection();
-		try {
-			Statement stmt = con.createStatement();
-			int numberOfrecordsDeleted;
-			numberOfrecordsDeleted = stmt.executeUpdate(query);
-			return numberOfrecordsDeleted;
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			return -1;
-		}
-	}
-
-	public static int deleteByModel(String model) {
-		String query = "DELETE FROM Vehicle where model = '" + model + "'";
-		ConnectionUtill conUtil = new ConnectionUtill();
-		Connection con = conUtil.getConnection();
-		try {
-			Statement stmt = con.createStatement();
-			int numberOfrecordsDeleted;
-			numberOfrecordsDeleted = stmt.executeUpdate(query);
-			return numberOfrecordsDeleted;
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			return -1;
-		}
-	}
-
+	/**
+	 * deleteByMakeAndModel method : delete the vehicle data by vehicle company
+	 * name and company model
+	 * 
+	 * @param : vehicle company and model
+	 * @return : int type ,number of row deleted
+	 */
 	public static int deleteByMakeModel(String make, String model) {
 		String query = "DELETE FROM Vehicle WHERE make = '" + make
 				+ "' AND model = '" + model + "'";
@@ -271,6 +262,13 @@ public class VehicleJDBCHelper {
 		}
 	}
 
+	/**
+	 * updateByMakeAndModel method : update the vehicle data by vehicle company
+	 * name and company model
+	 * 
+	 * @param : vehicle company and model
+	 * @return : int type ,number of row updated
+	 */
 	public static int updateByMakeAndModel(Vehicle vehicle) {
 		String query = "UPDATE Vehicle SET engine_cc=" + vehicle.getEnginInCC()
 				+ ",fuel_capacity=" + vehicle.getFuelCapacity() + ",milage="
@@ -311,6 +309,11 @@ public class VehicleJDBCHelper {
 		}
 	}
 
+	/**
+	 * adminProfile method : resule set of admin table
+	 * 
+	 * @return : result set of admin table
+	 */
 	public static ResultSet adminProfile() {
 		String query = "SELECT * FROM Admin";
 		Connection con = null;
@@ -327,6 +330,11 @@ public class VehicleJDBCHelper {
 		return rs;
 	}
 
+	/**
+	 * adminProfile method : resule set of vehicle table
+	 * 
+	 * @return : result set of vehicle company
+	 */
 	public static ResultSet distictMake() {
 		String query = "SELECT DISTINCT make from Vehicle";
 		Connection con = null;
@@ -343,6 +351,11 @@ public class VehicleJDBCHelper {
 		return rs;
 	}
 
+	/**
+	 * searchModel method : resule set of vehicle data
+	 * 
+	 * @return : result set of vehicle search by company
+	 */
 	public static ResultSet searchModel(String make) {
 		String query = "SELECT model from Vehicle WHERE make='" + make + "'";
 		Connection con = null;
@@ -359,6 +372,11 @@ public class VehicleJDBCHelper {
 		return rs;
 	}
 
+	/**
+	 * updateAdminProfile method : update the admin table
+	 * 
+	 * @param : http servlet request
+	 */
 	public static int updateAdminProfile(HttpServletRequest request) {
 		String query = "UPDATE Admin SET email='"
 				+ request.getParameter("email") + "', name='"
@@ -381,6 +399,12 @@ public class VehicleJDBCHelper {
 		return update;
 	}
 
+	/**
+	 * loginCheck method : check the valid admin or not
+	 * 
+	 * @param : http servlet request
+	 * @return : boolean respo nce the admin is valid or not
+	 */
 	public static boolean loginCheck(HttpServletRequest request) {
 		boolean isAdmin = false;
 		String email = request.getParameter("email");
