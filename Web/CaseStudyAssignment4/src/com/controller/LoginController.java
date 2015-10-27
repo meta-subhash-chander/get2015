@@ -1,3 +1,10 @@
+/****************************************************************************************
+Name            : LoginController
+Revision Log    : 2015-10-25: Subhash Chander : created.
+                : 
+                : 
+Use             : This class is used to control login admin                 
+ ****************************************************************************************/
 package com.controller;
 
 import java.io.IOException;
@@ -18,40 +25,46 @@ import com.helper.VehicleJDBCHelper;
 @WebServlet("/LoginController")
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public LoginController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
+	public LoginController() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * doGet method : redirect to login.jsp page
+	 * 
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		getServletContext().getRequestDispatcher("/login.jsp").forward(request,
+				response);
+	}
+
+	/**
+	 * doPost method : creare the session for vaid user
+	 * 
+	 */
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String email = request.getParameter("email");
 		boolean isAdmin = VehicleJDBCHelper.loginCheck(request);
-		RequestDispatcher loginunsuccessful = request.getRequestDispatcher("login.jsp");
-		RequestDispatcher loginsuccessful = request.getRequestDispatcher("AdminHome.jsp");
-		if( isAdmin == true ) {
-				HttpSession session = request.getSession();
-	            session.setAttribute("email", email);
-				loginsuccessful.forward(request, response);
-		}
-		else {
+		RequestDispatcher loginunsuccessful = request
+				.getRequestDispatcher("login.jsp");
+		RequestDispatcher loginsuccessful = request
+				.getRequestDispatcher("AdminHome.jsp");
+		if (isAdmin == true) {
+			HttpSession session = request.getSession();
+			session.setAttribute("email", email);
+			loginsuccessful.forward(request, response);
+		} else {
 			request.setAttribute("message", "Either ID or Password is wrong..");
-            loginunsuccessful.forward(request, response);
+			loginunsuccessful.forward(request, response);
 		}
 	}
 
