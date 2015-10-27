@@ -4,7 +4,7 @@
 <%@page import="com.model.*"%>
 <!DOCTYPE html>
 <html>
-<head>
+<head> 
 <meta charset="ISO-8859-1">
 <!-- link with css file -->
 <link href="./css/style1.css" rel="stylesheet" />
