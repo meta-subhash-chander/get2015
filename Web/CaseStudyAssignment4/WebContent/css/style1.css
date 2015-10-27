@@ -58,17 +58,7 @@ nav ul li a {
 nav ul li a:hover {
 	color: orange;
 }
-/* Define section tag attribute */
-section {
-	border: 1px solid black;
-	width: 300px;
-	height: 400px;
-	float: left;
-	margin-top: 60px;
-	margin-left: 20px;
-	background-color: white;
-	clear: both;
-}
+
 /* Define aside attribute */
 aside {
 	height: 400px;
@@ -77,34 +67,6 @@ aside {
 	float: left;
 	margin-top: 60px;
 	margin-left: 300px;
-}
-/* Define class inputbox attribute */
-.inputbox {
-	width: 100%;
-	border: 2px solid gray;
-	border-radius: 4px;
-}
-/* Define id searchdetail attribute */
-#searchdetail {
-	width: 600px;
-	height: 450px;
-	margin: 15px auto 0px auto;
-	border: 1px solid gray;
-	text-align: center;
-	background-color: rgba(148, 147, 140, 0.7);
-}
-/* Define id detail attribute */
-#detail {
-	width: 600px;
-	height: 750px;
-	margin: 15px auto 0px auto;
-	border: 2px solid gray;
-	text-align: center;
-	background-color: rgba(148, 147, 140, 0.7);
-}
-/* Define aligncenter attribute */
-.aligncenter {
-	text-align: center;
 }
 
 /* Define butten Style attribute */
@@ -121,10 +83,7 @@ aside {
 	color: orange;
 	background-color: rgba(0, 0, 0, 0);
 }
-/* Define class searchBox attribute */
-.searchBox:FOCUS {
-	box-shadow: 0 0 10px red;
-}
+
 /* Define input attribute */
 input {
 	background-color: rgba(0, 0, 0, 0);
@@ -132,22 +91,12 @@ input {
 	font-weight: bold;
 	border: 1px solid orange;
 }
-/* Define select tag attribute */
-select {
-	background-color: rgba(0, 0, 0, 0);
-	color: black;
-	font-weight: bold;
-	border: 1px solid orange;
-	width: 150px;
-}
+
 /* Define input box attribute */
 input:HOVER {
 	box-shadow: 0 0 10px red;
 }
-/* Define select tag attribute */
-select:HOVER {
-	box-shadow: 0 0 10px red;
-}
+
 /* Define id loginBoxForAdmin attribute */
 #loginBoxForAdmin {
 	border: 1px solid black;
@@ -158,129 +107,96 @@ select:HOVER {
 	clear: both;
 	background-color: rgba(148, 147, 140, 0.7);
 }
-/* Define id loginBoxForUser attribute */
-#loginBoxForUser {
-	border: 1px solid black;
-	width: 600px;
-	height: 80px;
-	margin: 0 auto;
-	margin-top: 50px;
-	clear: both;
-	background-color: rgba(148, 147, 140, 0.7);
-}
-/* Define id specificationDetail attribute */
-#specificationDetail {
-	border: 1px solid black;
-	width: 600px;
-	height: 500px;
-	float: left;
-	margin: 0 auto;
-	margin-top: 50px;
-	margin-left: 200px;
-	clear: both;
-	background-color: rgba(148, 147, 140, 0.7);
-}
-/* Define id specificationImage attribute */
-#specificationImage {
-	border: 1px solid black;
-	width: 400px;
-	height: 300px;
-	float: left;
-	margin: 0 auto;
-	margin-top: 150px;
-	margin-left: 150px;
-	background-color: rgba(148, 147, 140, 0.7);
-}
-/**********************************************************/
-.sectionAdmin{
-	width:95%;
-	height:600px;
+/* Admin section attribute */
+.sectionAdmin {
+	width: 95%;
+	height: 600px;
 	padding-top: 2%;
 	padding-bottom: 2%;
-	text-align:center;
-	background-image: url("../images/car3.jpg");
+	text-align: center;
+	background-image: url("../image/car33.jpg");
 	color: white;
 	font-weight: bold;
 	font-size: 28px;
 }
 
-.sectionAdmin h1{
+.sectionAdmin h1 {
 	font-size: 28px;
 	color: #8B008B;
 }
 
-.sectionAdmin table{
+.sectionAdmin table {
 	margin: 0 auto;
-	margin-top:2%;
+	margin-top: 2%;
 }
 
-.sectionAdmin a{
+.sectionAdmin a {
 	font-style: italic;
 	color: #8B0000;
 }
-.section5{
-	width:95%;
-	height:500px;
+/*  section 5  attribute */
+.section5 {
+	width: 95%;
+	height: 500px;
 	padding-top: 5%;
 	padding-bottom: 2%;
 	color: white;
 	background-color: black;
 }
 
-.section5 img{
+.section5 img {
 	float: left;
 	width: 30%;
 	height: 70%;
 	margin-left: 0.5%;
 	margin-right: 2%;
 }
-.section1{
-	width:95%;
-	height:600px;
+/*  section 1  attribute */
+.section1 {
+	width: 95%;
+	height: 600px;
 	padding-top: 2%;
 	padding-bottom: 2%;
-	background-image: url("../images/car1.jpg");
-	text-align:center;
+	background-image: url("../image/car11.jpg");
+	text-align: center;
 }
 
-
-h2{
+h2 {
 	color: #66FF00;
 	font-weight: bold;
 	font-size: 30px;
 }
 
-
-.section1 form table{
+.section1 form table {
 	margin: 0 auto;
-	margin-top:2%;
+	margin-top: 2%;
 }
 
-th{
+th {
 	font-size: 25px;
 }
 
-td{
+td {
 	font-size: 22px;
 }
 
-.text{
-	margin:10px;
-	text-align:right;
+.text {
+	margin: 10px;
+	text-align: right;
 	color: white;
 	font-weight: bold;
 }
 
-.text1{
-	margin:10px;
+.text1 {
+	margin: 10px;
 	color: white;
 	font-weight: bold;
 }
 
- .field{
-	margin:10px;
-	height:25px;
-	width:300px;
+.field {
+	margin: 10px;
+	height: 25px;
+	width: 300px;
 	border: 2px solid white;
 	background: transparent;
 	color: white;
@@ -288,10 +204,10 @@ td{
 	font-size: 18px;
 }
 
-.list{
-	margin:10px;
-	width:450px;
-	height:25px;
+.list {
+	margin: 10px;
+	width: 450px;
+	height: 25px;
 	border: 2px solid white;
 	background: transparent;
 	color: white;
@@ -299,104 +215,103 @@ td{
 	font-size: 18px;
 }
 
-.radioField{
-	margin:10px;
+.radioField {
+	margin: 10px;
 }
 
-.button{
-	margin-top:6px;
-	width:100px;
-	height:30px;
-	font-size:16px;
+.button {
+	margin-top: 6px;
+	width: 100px;
+	height: 30px;
+	font-size: 16px;
 	color: white;
-	font-weight:bold;
+	font-weight: bold;
 }
 
-.alert1{
-	margin:10px;
-	text-align:center;
+.alert1 {
+	margin: 10px;
+	text-align: center;
 	color: red;
 	font-weight: bold;
 }
-.section2{
-	width:95%;
-	height:500px;
-	
+/*  section 2  attribute */
+.section2 {
+	width: 95%;
+	height: 500px;
 	padding-top: 15%;
 	padding-bottom: 2%;
 	background-color: #CC99CC;
-	background-image: url("../images/car1.jpg");
-	text-align:center;
+	background-image: url("../image/car11.jpg");
+	text-align: center;
 }
 
-
-.section2 form table{
+.section2 form table {
 	margin: 0 auto;
-	margin-top:2%;
+	margin-top: 2%;
 }
-.sectionAdmin{
-	width:95%;
-	height:600px;
+
+.sectionAdmin {
+	width: 95%;
+	height: 600px;
 	padding-top: 2%;
 	padding-bottom: 2%;
-	text-align:center;
-	background-image: url("../images/car3.jpg");
+	text-align: center;
+	background-image: url("../image/car33.jpg");
 	color: white;
 	font-weight: bold;
 	font-size: 28px;
 }
 
-.sectionAdmin h1{
+.sectionAdmin h1 {
 	font-size: 28px;
 	color: #8B008B;
 }
 
-.sectionAdmin table{
+.sectionAdmin table {
 	margin: 0 auto;
-	margin-top:2%;
+	margin-top: 2%;
 }
 
-.sectionAdmin a{
+.sectionAdmin a {
 	font-style: italic;
 	color: #8B0000;
 }
-.section4{
-	width:100%;
-	height:500px;
-	
+/*  section 4  attribute */
+.section4 {
+	width: 95%;
+	height: 500px;
 	padding-top: 6%;
 	padding-bottom: 2%;
 	background-color: #CC99CC;
-	background-image: url("../images/car4.jpg");
-	text-align:center;
+	background-image: url("../image/car44.jpg");
+	text-align: center;
 }
 
-
-.section4 form table{
+.section4 form table {
 	margin: 0 auto;
-	margin-top:2%;
-	width:90%;
+	margin-top: 2%;
+	width: 90%;
 	border: 2px solid white;
 	border-collapse: collapse;
 }
 
-.section4 form table tr td{
-	margin:10px;
+.section4 form table tr td {
+	margin: 10px;
 	color: White;
 	font-weight: bold;
 	border: 2px solid white;
 	padding: 5px;
 }
 
-.section4 form table tr th{
-	margin:10px;
+.section4 form table tr th {
+	margin: 10px;
 	color: red;
 	font-weight: bold;
 	border: 2px solid white;
 	padding: 5px;
 }
 
-.section4 form table tr td a{
+.section4 form table tr td a {
 	font-style: italic;
 	color: #8A2BE2;
 	font-weight: bold;
