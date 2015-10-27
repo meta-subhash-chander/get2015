@@ -1,9 +1,9 @@
 /****************************************************************************************
-Name            : ViewDetailUserController
+Name            : SearchController
 Revision Log    : 2015-10-25: Subhash Chander : created.
                 : 
                 : 
-Use             : This class is used to show user search detail                 
+Use             : This class is used to Search by user        
  ****************************************************************************************/
 package com.controller;
 
@@ -15,41 +15,37 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ViewDetailUserController
+ * Servlet implementation class SearchController
  */
-@WebServlet("/ViewDetailUserController")
-public class ViewDetailUserController extends HttpServlet {
+@WebServlet("/SearchController")
+public class SearchController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public SearchController() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public ViewDetailUserController() {
-		super();
-		// TODO Auto-generated constructor stub
+    /**
+   	 * doGet method :  redirect  to search.jsp page 
+   	 * 
+   	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		getServletContext().getRequestDispatcher("/search.jsp").forward(request, response);
 	}
 
-	/**
-	 * doGet method : take the data like car company , car model and redirect it
-	 * to cardetails.jsp page
-	 * 
-	 */
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	 /**
+   	 * doPost method :   show user rearch result
+   	 * 
+   	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setAttribute("make", request.getParameter("make"));
-		request.setAttribute("model", request.getParameter("model"));
-		getServletContext().getRequestDispatcher("/cardetails.jsp").forward(
-				request, response);
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		getServletContext().getRequestDispatcher("/searchResult.jsp").forward(request, response);
 	}
 
 }
