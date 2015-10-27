@@ -1,3 +1,11 @@
+/****************************************************************************************
+Name            : AdminHomeController
+Revision Log    : 2015-10-25: Subhash Chander : created.
+                : 
+                : 
+Use             : This class is used to control admin home pages
+                :
+ ****************************************************************************************/
 package com.controller;
 
 import java.io.IOException;
@@ -13,27 +21,32 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/AdminHomeController")
 public class AdminHomeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public AdminHomeController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		getServletContext().getRequestDispatcher("/AdminHome.jsp").forward(request, response);
+	public AdminHomeController() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * doGet method : redirect admin home page request to adminHome.jsp page
+	 * 
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		getServletContext().getRequestDispatcher("/AdminHome.jsp").forward(
+				request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	}
 
