@@ -11,6 +11,17 @@ body {
 	width: 1500px;
 	height: 900px;
 }
+/* Define section tag attribute */
+section {
+	border: 1px solid black;
+	width: 300px;
+	height: 400px;
+	float: left;
+	margin-top: 60px;
+	margin-left: 20px;
+	background-color: white;
+	clear: both;
+}
 /* Define  header attribute */
 header {
 	width: 100%;
