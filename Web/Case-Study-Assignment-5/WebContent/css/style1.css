@@ -1,0 +1,329 @@
+@CHARSET "ISO-8859-1";
+/* Define  body attribute */
+body {
+	background-image: url("../image/roadback.jpg");
+	background-size: 1600px 900px;
+}
+/* Define dev wrapper attribute */
+#wrapper {
+	border: 1px solid white;
+	margin: 0 auto;
+	width: 1500px;
+	height: 900px;
+}
+/* Define section tag attribute */
+section {
+	border: 1px solid black;
+	width: 300px;
+	height: 400px;
+	float: left;
+	margin-top: 60px;
+	margin-left: 20px;
+	background-color: white;
+	clear: both;
+}
+/* Define  header attribute */
+header {
+	width: 100%;
+	height: 100px;
+	background-color: white;
+	border-bottom: 1px solid red;
+}
+/* Define id image attribute */
+#image {
+	padding-top: 25px;
+}
+/* Define head tag attribute */
+#head {
+	background-color: gray;
+	width: 100%;
+	height: 40px;
+}
+/* Define nav attribute */
+nav {
+	padding-top: 6px;
+	text-align: right;
+	clear: both;
+}
+
+nav ul {
+	margin: 0px;
+	list-style: none;
+}
+
+nav ul li {
+	display: inline;
+	border: 0px solid #f00;
+	margin: 0 10px;
+}
+
+nav ul li a {
+	color: #FFF;
+	text-decoration: none;
+	font-size: 25px;
+	font-family: monospace;
+	border: 1px solid white;
+	border-radius: 3px;
+}
+
+nav ul li a:hover {
+	color: orange;
+}
+
+/* Define aside attribute */
+aside {
+	height: 400px;
+	width: 700px;
+	background-color: rgba(148, 147, 140, 0.7);
+	float: left;
+	margin-top: 60px;
+	margin-left: 300px;
+}
+
+/* Define butten Style attribute */
+.btnStyle {
+	color: orange;
+	background-color: rgba(0, 0, 0, 0);
+	font-weight: bold;
+	border: 2px soild black;
+	border-top-right-radius: 10px;
+	font-size: 120%;
+}
+/* Define butten Style attribute */
+.btnStyle:hover {
+	color: orange;
+	background-color: rgba(0, 0, 0, 0);
+}
+
+/* Define input attribute */
+input {
+	background-color: rgba(0, 0, 0, 0);
+	color: black;
+	font-weight: bold;
+	border: 1px solid orange;
+}
+
+/* Define input box attribute */
+input:HOVER {
+	box-shadow: 0 0 10px red;
+}
+
+/* Define id loginBoxForAdmin attribute */
+#loginBoxForAdmin {
+	border: 1px solid black;
+	width: 400px;
+	height: 250px;
+	margin: 0 auto;
+	margin-top: 150px;
+	clear: both;
+	background-color: rgba(148, 147, 140, 0.7);
+}
+/* Admin section attribute */
+.sectionAdmin {
+	width: 95%;
+	height: 600px;
+	padding-top: 2%;
+	padding-bottom: 2%;
+	text-align: center;
+	background-image: url("../image/car33.jpg");
+	color: white;
+	font-weight: bold;
+	font-size: 28px;
+}
+
+.sectionAdmin h1 {
+	font-size: 28px;
+	color: #8B008B;
+}
+
+.sectionAdmin table {
+	margin: 0 auto;
+	margin-top: 2%;
+}
+
+.sectionAdmin a {
+	font-style: italic;
+	color: #8B0000;
+}
+/*  section 5  attribute */
+.section5 {
+	width: 95%;
+	height: 500px;
+	padding-top: 5%;
+	padding-bottom: 2%;
+	color: white;
+	background-color: black;
+}
+
+.section5 img {
+	float: left;
+	width: 30%;
+	height: 70%;
+	margin-left: 0.5%;
+	margin-right: 2%;
+}
+/*  section 1  attribute */
+.section1 {
+	width: 95%;
+	height: 600px;
+	padding-top: 2%;
+	padding-bottom: 2%;
+	background-image: url("../image/car11.jpg");
+	text-align: center;
+}
+
+h2 {
+	color: #66FF00;
+	font-weight: bold;
+	font-size: 30px;
+}
+
+.section1 form table {
+	margin: 0 auto;
+	margin-top: 2%;
+}
+
+th {
+	font-size: 25px;
+}
+
+td {
+	font-size: 22px;
+}
+
+.text {
+	margin: 10px;
+	text-align: right;
+	color: white;
+	font-weight: bold;
+}
+
+.text1 {
+	margin: 10px;
+	color: white;
+	font-weight: bold;
+}
+
+.field {
+	margin: 10px;
+	height: 25px;
+	width: 300px;
+	border: 2px solid white;
+	background: transparent;
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.list {
+	margin: 10px;
+	width: 450px;
+	height: 25px;
+	border: 2px solid white;
+	background: transparent;
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.radioField {
+	margin: 10px;
+}
+
+.button {
+	margin-top: 6px;
+	width: 100px;
+	height: 30px;
+	font-size: 16px;
+	color: white;
+	font-weight: bold;
+}
+
+.alert1 {
+	margin: 10px;
+	text-align: center;
+	color: red;
+	font-weight: bold;
+}
+/*  section 2  attribute */
+.section2 {
+	width: 95%;
+	height: 500px;
+	padding-top: 15%;
+	padding-bottom: 2%;
+	background-color: #CC99CC;
+	background-image: url("../image/car11.jpg");
+	text-align: center;
+}
+
+.section2 form table {
+	margin: 0 auto;
+	margin-top: 2%;
+}
+
+.sectionAdmin {
+	width: 95%;
+	height: 600px;
+	padding-top: 2%;
+	padding-bottom: 2%;
+	text-align: center;
+	background-image: url("../image/car33.jpg");
+	color: white;
+	font-weight: bold;
+	font-size: 28px;
+}
+
+.sectionAdmin h1 {
+	font-size: 28px;
+	color: #8B008B;
+}
+
+.sectionAdmin table {
+	margin: 0 auto;
+	margin-top: 2%;
+}
+
+.sectionAdmin a {
+	font-style: italic;
+	color: #8B0000;
+}
+/*  section 4  attribute */
+.section4 {
+	width: 95%;
+	height: 500px;
+	padding-top: 6%;
+	padding-bottom: 2%;
+	background-color: #CC99CC;
+	background-image: url("../image/car44.jpg");
+	text-align: center;
+}
+
+.section4 form table {
+	margin: 0 auto;
+	margin-top: 2%;
+	width: 90%;
+	border: 2px solid white;
+	border-collapse: collapse;
+}
+
+.section4 form table tr td {
+	margin: 10px;
+	color: White;
+	font-weight: bold;
+	border: 2px solid white;
+	padding: 5px;
+}
+
+.section4 form table tr th {
+	margin: 10px;
+	color: red;
+	font-weight: bold;
+	border: 2px solid white;
+	padding: 5px;
+}
+
+.section4 form table tr td a {
+	font-style: italic;
+	color: #8A2BE2;
+	font-weight: bold;
+}
