@@ -1,0 +1,14 @@
+ 
+
+
+.div1 {
+	
+	background:green;
+	left:100px;
+	top:200px; 
+	border:5px solid black;
+	height:100px;
+	width:100px;
+	position:absolute;
+}
+
