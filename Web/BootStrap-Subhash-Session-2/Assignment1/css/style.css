@@ -1,0 +1,19 @@
+@CHARSET "ISO-8859-1";
+
+.lavender {
+	background-color: lavender;
+	
+}
+
+span.glyphicon-facetime-video {
+    font-size: 5em;
+}
+
+
+span{
+	font-size: 2em;
+	padding-left:5px;
+}
+.responsive-width{
+    font-size: 1.1vw;
+}
