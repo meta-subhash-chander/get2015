@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css" />
+<script type="text/javascript" src="jquery/jquery-1.11.3.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<title>Responsive Form</title>
+<script>
+	$(document).ready(function() {
+		$('[data-toggle="tooltip"]').tooltip();
+	});
+
+	$(document).ready(function() {
+		$('[data-toggle="popover"]').popover();
+	});
+</script>
+</head>
+<body>
+	<h1 align="center" class="hidden-xs">Sample Form</h1>
+	<div class="row">
+		<div class="col-xs-12 visible-xs">
+			<span class="glyphicon glyphicon-facetime-video"></span>
+		</div>
+	</div>
+	<div class="container-fluid lavender well">
+		<form role="form">
+			<div class="row form-group">
+				<div class="col-lg-1 col-md-1 col-sm-4 col-xs-12 ">
+					<label for="title" data-toggle="popover" data-placement="bottom"
+						data-content="Movie Title">Movie Title</label>
+				</div>
+				<div class="col-lg-5 col-md-5 col-sm-8 col-xs-12 ">
+					<div>
+						<input type="text" class="form-control" id="txtTitle"
+							data-toggle="tooltip" title="Enter Movie Title"
+							data-placement="right" placeholder="Enter Movie Title">
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-4 col-xs-12 ">
+					<label for="Genre " data-toggle="popover" data-placement="bottom"
+						data-content="Choose a genre">Genre</label>
+				</div>
+				<div class="col-lg-5 col-md-5 col-sm-8 col-xs-12">
+					<div>
+						<select class="form-control" id="genre" data-toggle="tooltip"
+							title="select genre " data-placement="bottom">
+							<option>Choose a genre</option>
+							<option>option 1</option>
+							<option>option 2</option>
+							<option>option 3</option>
+							<option>option 4</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row form-group">
+				<div class="col-lg-1 col-md-1 col-sm-4 col-xs-12 ">
+					<label for="director" data-toggle="popover" data-placement="bottom"
+						data-content="Movie Director Name">Director</label>
+				</div>
+				<div class="col-lg-2 col-md-5 col-sm-8 col-xs-12 ">
+					<div>
+						<input type="text" class="form-control" id="txtDirector"
+							data-toggle="tooltip" title="Enter Movie Director Name"
+							data-placement="right" placeholder="Enter Director name">
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-4 col-xs-12 ">
+					<label for="writer" data-toggle="popover" data-placement="bottom"
+						data-content="Movie Writer Name">Writer</label>
+				</div>
+				<div class="col-lg-2 col-md-5 col-sm-8 col-xs-12 ">
+					<div>
+						<input type="text" class="form-control" id="txtWritter"
+							data-toggle="tooltip" title="Enter Movie Writer Name"
+							data-placement="right" placeholder="">
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-4 col-xs-12 ">
+					<label for="producer" data-toggle="popover" data-placement="bottom"
+						data-content="Movie Producer Name">Producer</label>
+				</div>
+				<div class="col-lg-2 col-md-5 col-sm-8 col-xs-12 ">
+					<div>
+						<input type="text" class="form-control" id="txtProducer"
+							data-toggle="tooltip" title="Enter Movie Producer Name"
+							data-placement="right">
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-4 col-xs-12 ">
+
+					<label for="composer" data-toggle="popover" data-placement="bottom"
+						data-content="Movie Composer Name">Composer</label>
+				</div>
+				<div class="col-lg-2 col-md-5 col-sm-8 col-xs-12 ">
+					<div>
+						<input type="text" class="form-control" id="txtComposer"
+							data-toggle="tooltip" title="Enter Movie Composer Name"
+							data-placement="bottom">
+					</div>
+				</div>
+			</div>
+			<div class="row form-group">
+				<div class="col-lg-1 col-md-1 col-sm-4 col-xs-12 ">
+					<label for="website" data-toggle="popover" data-placement="bottom"
+						data-content="Movie Website">Website</label>
+				</div>
+				<div class="col-lg-5 col-md-5 col-sm-8 col-xs-12 ">
+					<div>
+						<input type="text" class="form-control" id="txtWebsite"
+							data-toggle="tooltip" title="Enter Movie Website"
+							data-placement="right">
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-4 col-xs-12 ">
+					<label for="trailer" data-toggle="popover" data-placement="bottom"
+						data-content="Enter Movie You Tube url">You Tube Trailer</label>
+				</div>
+				<div class="col-lg-5 col-md-5 col-sm-8 col-xs-12 ">
+					<div>
+						<input type="text" class="form-control" id="txtYouTube"
+							data-toggle="tooltip" title="Enter Movie You Tube url"
+							data-placement="bottom">
+					</div>
+				</div>
+			</div>
+			<div class="row form-group">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+					<label for="review" data-toggle="popover" data-placement="bottom"
+						data-content="Movie Review">Review</label>
+				</div>
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+					<textarea class="form-control" rows="5" id="txtAreaReview"
+						data-toggle="tooltip" title="Enter Movie Review"
+						data-placement="bottom"></textarea>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
+					<label for="rating" data-toggle="popover" data-placement="bottom"
+						data-content="Movie rating">Rating</label>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 ">
+					<div class="radio text-danger">
+						<label><input type="radio" name="optradio">Terrible
+						</label>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 ">
+					<div class="radio text-primary">
+						<label><input type="radio" name="optradio">Watchable
+						</label>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 ">
+					<div class="radio text-success">
+						<label><input type="radio" name="optradio">Best
+							ever </label>
+					</div>
+				</div>
+			</div>
+			<div class="row form-group">
+				<div
+					class="col-lg-12 col-lg-push-3 col-md-12 col-md-push-3 col-sm-12 col-xs-12 ">
+
+					<button type="button" class="btn btn-default responsive-width">Cancle</button>
+					<button type="button" class="btn btn-primary responsive-width">Validate</button>
+					<button type="button" class="btn btn-success responsive-width">Submit</button>
+					<button type="button" class="btn btn-danger responsive-width">Delete</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
